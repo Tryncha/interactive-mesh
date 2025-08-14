@@ -1,0 +1,20 @@
+.Subject {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.Subject--active {
+  background-color: #8ee48e;
+}
+
+.Subject--deactive {
+  background-color: #d4d4d4;
+}
+
+.Subject--disabled {
+  background-color: #f1f1f1;
+}
