@@ -1,35 +1,30 @@
 import { useContext } from 'react';
-import './Subject.css';
+import { verifyRequired, verifyCompletedIds } from '../../utils';
 import MeshContext from '../../context/MeshContext';
+import './Subject.css';
 
-function verifyRequired(completedSubjects, subject) {
-  return subject.prerequired.every((pre) => completedSubjects.includes(pre));
-}
+const Subject = ({ subjectObj }) => {
+  const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
+  const isActive = completedSubjectsIds.includes(subjectObj.id);
 
-const Subject = ({ subject }) => {
-  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
-  const isActive = completedSubjects.includes(subject.name);
-
-  function handleClick() {
-    if (verifyRequired(completedSubjects, subject)) {
-      if (!completedSubjects.includes(subject.name)) {
-        setCompletedSubjects(completedSubjects.concat(subject.name));
-      } else {
-        setCompletedSubjects(completedSubjects.filter((sbj) => sbj !== subject.name));
-      }
+  function toggleSubject() {
+    if (!completedSubjectsIds.includes(subjectObj.id)) {
+      setCompletedSubjectsIds([...completedSubjectsIds, subjectObj.id]);
+    } else {
+      const withoutSubjectId = completedSubjectsIds.filter((sbj) => sbj !== subjectObj.id);
+      const cleanedCompletedIds = verifyCompletedIds(withoutSubjectId);
+      setCompletedSubjectsIds(cleanedCompletedIds);
     }
   }
 
   return (
     <>
-      {verifyRequired(completedSubjects, subject) ? (
-        <div className={`Subject Subject--${isActive ? 'active' : 'deactive'}`} onClick={handleClick}>
-          {subject.name}
+      {verifyRequired(completedSubjectsIds, subjectObj) ? (
+        <div className={`Subject Subject--${isActive ? 'active' : 'deactive'}`} onClick={toggleSubject}>
+          {subjectObj.name}
         </div>
       ) : (
-        <div className={`Subject Subject--disabled`} onClick={handleClick}>
-          {subject.name}
-        </div>
+        <div className={`Subject Subject--disabled`}>{subjectObj.name}</div>
       )}
     </>
   );

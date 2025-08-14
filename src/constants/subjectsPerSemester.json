@@ -35,32 +35,57 @@
     {
       "id": 5,
       "name": "Cálculo Integral",
-      "prerequired": ["Cálculo Diferencial"],
+      "prerequired": [
+        {
+          "id": 0,
+          "name": "Cálculo Diferencial"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 6,
       "name": "Álgebra Lineal",
-      "prerequired": ["Cálculo Diferencial"],
+      "prerequired": [
+        {
+          "id": 0,
+          "name": "Cálculo Diferencial"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 7,
       "name": "Química General II",
-      "prerequired": ["Química General I"],
+      "prerequired": [
+        {
+          "id": 2,
+          "name": "Química General I"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 8,
       "name": "Física: Mecánica",
-      "prerequired": ["Cálculo Diferencial"],
+      "prerequired": [
+        {
+          "id": 0,
+          "name": "Cálculo Diferencial"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 9,
       "name": "Laboratorio de Química General",
       "prerequired": [],
-      "corequired": ["Química General II"]
+      "corequired": [
+        {
+          "id": 7,
+          "name": "Química General II"
+        }
+      ]
     },
     {
       "id": 10,
@@ -79,7 +104,12 @@
     {
       "id": 12,
       "name": "Cálculo Vectorial",
-      "prerequired": ["Cálculo Integral"],
+      "prerequired": [
+        {
+          "id": 5,
+          "name": "Cálculo Integral"
+        }
+      ],
       "corequired": []
     },
     {
@@ -92,7 +122,12 @@
       "id": 14,
       "name": "Laboratorio de Química Analítica",
       "prerequired": [],
-      "corequired": ["Química Analítica"]
+      "corequired": [
+        {
+          "id": 15,
+          "name": "Química Analítica"
+        }
+      ]
     },
     {
       "id": 15,
@@ -103,7 +138,12 @@
     {
       "id": 16,
       "name": "Termodinámica I",
-      "prerequired": ["Cálculo Integral"],
+      "prerequired": [
+        {
+          "id": 5,
+          "name": "Cálculo Integral"
+        }
+      ],
       "corequired": []
     },
     {
@@ -115,7 +155,12 @@
     {
       "id": 18,
       "name": "Inglés II",
-      "prerequired": ["Inglés I"],
+      "prerequired": [
+        {
+          "id": 11,
+          "name": "Inglés I"
+        }
+      ],
       "corequired": []
     }
   ],
@@ -123,43 +168,82 @@
     {
       "id": 19,
       "name": "Ecuaciones Diferenciales",
-      "prerequired": ["Cálculo Vectorial"],
+      "prerequired": [
+        {
+          "id": 12,
+          "name": "Cálculo Vectorial"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 20,
       "name": "Biología Celular y Microbiología",
       "prerequired": [],
-      "corequired": ["Química Orgánica"]
+      "corequired": [
+        {
+          "id": 22,
+          "name": "Química Orgánica"
+        }
+      ]
     },
     {
       "id": 21,
       "name": "Mecánica de Fluidos",
-      "prerequired": ["Física: Mecánica", "Termodinámica I"],
+      "prerequired": [
+        {
+          "id": 8,
+          "name": "Física: Mecánica"
+        },
+        {
+          "id": 16,
+          "name": "Termodinámica I"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 22,
       "name": "Química Orgánica",
-      "prerequired": ["Química Analítica"],
+      "prerequired": [
+        {
+          "id": 15,
+          "name": "Química Analítica"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 23,
       "name": "Termodinámica II",
-      "prerequired": ["Termodinámica I"],
+      "prerequired": [
+        {
+          "id": 16,
+          "name": "Termodinámica I"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 24,
       "name": "Principios de los Procesos Químicos",
-      "prerequired": ["Termodinámica I"],
+      "prerequired": [
+        {
+          "id": 16,
+          "name": "Termodinámica I"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 25,
       "name": "Inglés III",
-      "prerequired": ["Inglés II"],
+      "prerequired": [
+        {
+          "id": 18,
+          "name": "Inglés II"
+        }
+      ],
       "corequired": []
     }
   ],
@@ -167,25 +251,50 @@
     {
       "id": 26,
       "name": "Métodos Numéricos Aplicados a Ingeniería Química",
-      "prerequired": ["Ecuaciones Diferenciales"],
+      "prerequired": [
+        {
+          "id": 19,
+          "name": "Ecuaciones Diferenciales"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 27,
       "name": "Bioquímica",
-      "prerequired": ["Biología Celular y Microbiología"],
+      "prerequired": [
+        {
+          "id": 20,
+          "name": "Biología Celular y Microbiología"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 28,
       "name": "Fenómenos de Transferencia",
-      "prerequired": ["Principios de los Procesos Químicos"],
-      "corequired": ["Métodos Numéricos Aplicados a Ingeniería Química"]
+      "prerequired": [
+        {
+          "id": 24,
+          "name": "Principios de los Procesos Químicos"
+        }
+      ],
+      "corequired": [
+        {
+          "id": 26,
+          "name": "Métodos Numéricos Aplicados a Ingeniería Química"
+        }
+      ]
     },
     {
       "id": 29,
       "name": "Laboratorio de Química Orgánica",
-      "prerequired": ["Química Orgánica"],
+      "prerequired": [
+        {
+          "id": 22,
+          "name": "Química Orgánica"
+        }
+      ],
       "corequired": []
     },
     {
@@ -203,7 +312,12 @@
     {
       "id": 32,
       "name": "Inglés IV",
-      "prerequired": ["Inglés III"],
+      "prerequired": [
+        {
+          "id": 25,
+          "name": "Inglés III"
+        }
+      ],
       "corequired": []
     }
   ],
@@ -217,19 +331,42 @@
     {
       "id": 34,
       "name": "Procesos de Separación",
-      "prerequired": ["Fenómenos de Transferencia"],
+      "prerequired": [
+        {
+          "id": 28,
+          "name": "Fenómenos de Transferencia"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 35,
       "name": "Procesos de Transferencia de Calor",
-      "prerequired": ["Mecánica de Fluidos", "Fenómenos de Transferencia"],
+      "prerequired": [
+        {
+          "id": 21,
+          "name": "Mecánica de Fluidos"
+        },
+        {
+          "id": 28,
+          "name": "Fenómenos de Transferencia"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 36,
       "name": "Cinética y Catálisis",
-      "prerequired": ["Termodinámica II", "Probabilidad y Estadística"],
+      "prerequired": [
+        {
+          "id": 23,
+          "name": "Termodinámica II"
+        },
+        {
+          "id": 31,
+          "name": "Probabilidad y Estadística"
+        }
+      ],
       "corequired": []
     },
     {
@@ -249,19 +386,42 @@
     {
       "id": 39,
       "name": "Humanidades para Ingenierías",
-      "prerequired": ["Asignatura Optativa Fundamentación"],
+      "prerequired": [
+        {
+          "id": 1,
+          "name": "Asignatura Optativa Fundamentación"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 40,
       "name": "Laboratorio de Ingeniería Química I",
-      "prerequired": ["Laboratorio de Química Orgánica", "Procesos de Transferencia de Calor"],
+      "prerequired": [
+        {
+          "id": 29,
+          "name": "Laboratorio de Química Orgánica"
+        },
+        {
+          "id": 35,
+          "name": "Procesos de Transferencia de Calor"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 41,
       "name": "Ingeniería de las Reacciones Químicas",
-      "prerequired": ["Cinética y Catálisis", "Procesos de Transferencia de Calor"],
+      "prerequired": [
+        {
+          "id": 36,
+          "name": "Cinética y Catálisis"
+        },
+        {
+          "id": 35,
+          "name": "Procesos de Transferencia de Calor"
+        }
+      ],
       "corequired": []
     },
     {
@@ -281,13 +441,27 @@
     {
       "id": 44,
       "name": "Ingeniería de Procesos I",
-      "prerequired": ["Ingeniería de las Reacciones Químicas", "Procesos de Separación"],
+      "prerequired": [
+        {
+          "id": 41,
+          "name": "Ingeniería de las Reacciones Químicas"
+        },
+        {
+          "id": 34,
+          "name": "Procesos de Separación"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 45,
       "name": "Laboratorio de Ingeniería Química II",
-      "prerequired": ["Laboratorio de Ingeniería Química I"],
+      "prerequired": [
+        {
+          "id": 40,
+          "name": "Laboratorio de Ingeniería Química I"
+        }
+      ],
       "corequired": []
     },
     {
@@ -299,7 +473,16 @@
     {
       "id": 47,
       "name": "Control de Procesos",
-      "prerequired": ["Ingeniería de las Reacciones Químicas", "Métodos Numéricos Aplicados a Ingeniería Química"],
+      "prerequired": [
+        {
+          "id": 41,
+          "name": "Ingeniería de las Reacciones Químicas"
+        },
+        {
+          "id": 26,
+          "name": "Métodos Numéricos Aplicados a Ingeniería Química"
+        }
+      ],
       "corequired": []
     },
     {
@@ -313,20 +496,45 @@
     {
       "id": 49,
       "name": "Formulación y Evaluación de Proyectos en Industrias de Procesos",
-      "prerequired": ["Fundamentos de Economía"],
-      "corequired": ["Ingeniería de Procesos II"]
+      "prerequired": [
+        {
+          "id": 33,
+          "name": "Fundamentos de Economía"
+        }
+      ],
+      "corequired": [
+        {
+          "id": 50,
+          "name": "Ingeniería de Procesos II"
+        }
+      ]
     },
     {
       "id": 50,
       "name": "Ingeniería de Procesos II",
-      "prerequired": ["Ingeniería de Procesos I"],
+      "prerequired": [
+        {
+          "id": 44,
+          "name": "Ingeniería de Procesos I"
+        }
+      ],
       "corequired": []
     },
     {
       "id": 51,
       "name": "Taller de Procesos Productivos",
-      "prerequired": ["Laboratorio de Ingeniería Química II"],
-      "corequired": ["Control de Procesos"]
+      "prerequired": [
+        {
+          "id": 45,
+          "name": "Laboratorio de Ingeniería Química II"
+        }
+      ],
+      "corequired": [
+        {
+          "id": 47,
+          "name": "Control de Procesos"
+        }
+      ]
     },
     {
       "id": 52,
@@ -352,12 +560,22 @@
       "id": 55,
       "name": "Trabajo de Grado",
       "prerequired": [],
-      "corequired": ["Control de Procesos"]
+      "corequired": [
+        {
+          "id": 47,
+          "name": "Control de Procesos"
+        }
+      ]
     },
     {
       "id": 56,
       "name": "Diseño de Plantas y Equipos",
-      "prerequired": ["Ingeniería de Procesos II"],
+      "prerequired": [
+        {
+          "id": 50,
+          "name": "Ingeniería de Procesos II"
+        }
+      ],
       "corequired": []
     },
     {
