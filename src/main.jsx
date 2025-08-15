@@ -5,9 +5,9 @@ import App from './App.jsx';
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-  <MeshProvider>
-    <App />
-  </MeshProvider>
-  // </StrictMode>
+  <StrictMode>
+    <MeshProvider>
+      <App />
+    </MeshProvider>
+  </StrictMode>
 );

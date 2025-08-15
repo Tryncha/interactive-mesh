@@ -1,3 +1,41 @@
+:root {
+  --body-backgroundColor: #ebebeb;
+  --body-borderColor: #1f1f1f;
+  --body-fontColor: #464646;
+
+  /* --- Subject --- */
+  --Subject-backgroundColor: #eee;
+
+  --Subject-borderColor: #818181;
+  --Subject-fontColor: #464646;
+
+  --Subject--disabled-borderColor: #999999;
+  --Subject--disabled-fontColor: #8b8b8b;
+
+  --Subject-boxShadow: #969696;
+
+  --Subject--isActive-backgroundColor: #d6f0d6;
+  --Subject--isDisabled-backgroundColor: #d4d4d4;
+
+  /* --- Subject Category color --- */
+  --Subject-fundamentalColor: #ecab33;
+  --Subject-disciplinaryColor: #459c45;
+  --Subject-electiveColor: #add8e6;
+  --Subject-foreignLanguageColor: #f8c6cf;
+
+  --Subject--isDisabled-fundamentalColor: #c0974b;
+  --Subject--isDisabled-disciplinaryColor: #387c38;
+  --Subject--isDisabled-electiveColor: #90b4c0;
+  --Subject--isDisabled-foreignLanguageColor: #cca7ae;
+
+  /* --- Subject Type colors --- */
+  --Subject-mandatoryColor: #e23232;
+  --Subject-optionalColor: #2067eb;
+
+  --Subject--isDisabled-mandatoryColor: #a53b3b;
+  --Subject--isDisabled-optionalColor: #2067eb;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -5,19 +43,45 @@
 }
 
 body {
-  background-color: #eee;
-  padding: auto;
+  background-color: var(--body-backgroundColor);
+  color: var(--body-fontColor);
+  font-family: 'Ancizar Sans';
+}
+
+.u-hr {
+  width: 90%;
+  border-top: 1px solid var(--body-borderColor);
+  margin: 20px auto;
+}
+
+.u-resetButton {
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: #a53b3b;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 30px;
+  border-radius: 5px;
+  margin-left: 50px;
+}
+
+.u-resetButton:hover {
+  background-color: #a53b3b;
 }
 
 .Mesh {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   justify-content: center;
-  margin: 50px 0;
+  margin-top: 15px;
+}
+
+.Mesh-semesterNumber {
+  text-align: center;
 }
 
 .Mesh-row {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }

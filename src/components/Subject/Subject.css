@@ -1,20 +1,92 @@
 .Subject {
-  width: 150px;
+  width: 160px;
   height: 100px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border: 1px solid black;
+  justify-content: space-between;
+  background-color: var(--Subject-backgroundColor);
+  text-align: center;
+  color: var(--Subject-fontColor);
+  border: 1px solid var(--Subject-borderColor);
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px var(--Subject-boxShadow);
 }
 
-.Subject--active {
-  background-color: #8ee48e;
+.Subject-name {
+  margin: auto 5px;
 }
 
-.Subject--deactive {
-  background-color: #d4d4d4;
+.Subject.is-active {
+  background-color: var(--Subject--isActive-backgroundColor);
 }
 
-.Subject--disabled {
-  background-color: #f1f1f1;
+.Subject.is-disabled {
+  background-color: var(--Subject--isDisabled-backgroundColor);
+  color: var(--Subject--disabled-fontColor);
+  border: 1px solid var(--Subject--disabled-borderColor);
+  cursor: initial;
+}
+
+.Subject-footer {
+  width: 100%;
+  height: 20px;
+  display: flex;
+}
+
+.Subject-category {
+  width: 70%;
+}
+
+.Subject--fundamental {
+  background-color: var(--Subject-fundamentalColor);
+}
+
+.Subject--disciplinary {
+  background-color: var(--Subject-disciplinaryColor);
+}
+
+.Subject--elective {
+  background-color: var(--Subject-electiveColor);
+}
+
+.Subject--foreignLanguage {
+  background-color: var(--Subject-foreignLanguageColor);
+}
+
+.Subject--fundamental.is-disabled {
+  background-color: var(--Subject--isDisabled-fundamentalColor);
+}
+
+.Subject--disciplinary.is-disabled {
+  background-color: var(--Subject--isDisabled-disciplinaryColor);
+}
+
+.Subject--elective.is-disabled {
+  background-color: var(--Subject--isDisabled-electiveColor);
+}
+
+.Subject--foreignLanguage.is-disabled {
+  background-color: var(--Subject--isDisabled-foreignLanguageColor);
+}
+
+.Subject-type {
+  width: 30%;
+}
+
+.Subject--mandatory {
+  background-color: var(--Subject-mandatoryColor);
+}
+
+.Subject--optional {
+  background-color: var(--Subject-optionalColor);
+}
+
+.Subject--mandatory.is-disabled {
+  background-color: var(--Subject--isDisabled-mandatoryColor);
+}
+
+.Subject--optional.is-disabled {
+  background-color: var(--Subject--isDisabled-optionalColor);
 }

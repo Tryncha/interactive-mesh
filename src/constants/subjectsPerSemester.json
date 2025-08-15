@@ -3,30 +3,40 @@
     {
       "id": 0,
       "name": "Cálculo Diferencial",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 1,
       "name": "Asignatura Optativa Fundamentación",
+      "category": "fundamental",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 2,
       "name": "Química General I",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 3,
       "name": "Introducción a la Ingeniería Química",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 4,
       "name": "Programación en Ingeniería",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     }
@@ -35,6 +45,8 @@
     {
       "id": 5,
       "name": "Cálculo Integral",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 0,
@@ -46,6 +58,8 @@
     {
       "id": 6,
       "name": "Álgebra Lineal",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 0,
@@ -57,6 +71,8 @@
     {
       "id": 7,
       "name": "Química General II",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 2,
@@ -68,6 +84,8 @@
     {
       "id": 8,
       "name": "Física: Mecánica",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 0,
@@ -79,6 +97,8 @@
     {
       "id": 9,
       "name": "Laboratorio de Química General",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": [
         {
@@ -90,12 +110,16 @@
     {
       "id": 10,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 11,
       "name": "Inglés I",
+      "category": "foreignLanguage",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     }
@@ -104,6 +128,8 @@
     {
       "id": 12,
       "name": "Cálculo Vectorial",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 5,
@@ -115,12 +141,16 @@
     {
       "id": 13,
       "name": "Asignatura Optativa Fundamentación",
+      "category": "fundamental",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 14,
       "name": "Laboratorio de Química Analítica",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": [
         {
@@ -132,12 +162,16 @@
     {
       "id": 15,
       "name": "Química Analítica",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 16,
       "name": "Termodinámica I",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 5,
@@ -149,12 +183,16 @@
     {
       "id": 17,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 18,
       "name": "Inglés II",
+      "category": "foreignLanguage",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 11,
@@ -168,6 +206,8 @@
     {
       "id": 19,
       "name": "Ecuaciones Diferenciales",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 12,
@@ -179,6 +219,8 @@
     {
       "id": 20,
       "name": "Biología Celular y Microbiología",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": [
         {
@@ -190,6 +232,8 @@
     {
       "id": 21,
       "name": "Mecánica de Fluidos",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 8,
@@ -205,6 +249,8 @@
     {
       "id": 22,
       "name": "Química Orgánica",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 15,
@@ -216,6 +262,8 @@
     {
       "id": 23,
       "name": "Termodinámica II",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 16,
@@ -227,6 +275,8 @@
     {
       "id": 24,
       "name": "Principios de los Procesos Químicos",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 16,
@@ -238,6 +288,8 @@
     {
       "id": 25,
       "name": "Inglés III",
+      "category": "foreignLanguage",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 18,
@@ -251,6 +303,8 @@
     {
       "id": 26,
       "name": "Métodos Numéricos Aplicados a Ingeniería Química",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 19,
@@ -262,6 +316,8 @@
     {
       "id": 27,
       "name": "Bioquímica",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 20,
@@ -273,6 +329,8 @@
     {
       "id": 28,
       "name": "Fenómenos de Transferencia",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 24,
@@ -289,6 +347,8 @@
     {
       "id": 29,
       "name": "Laboratorio de Química Orgánica",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 22,
@@ -300,18 +360,24 @@
     {
       "id": 30,
       "name": "Operaciones con Sólidos",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 31,
       "name": "Probabilidad y Estadística",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 32,
       "name": "Inglés IV",
+      "category": "foreignLanguage",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 25,
@@ -325,12 +391,16 @@
     {
       "id": 33,
       "name": "Fundamentos de Economía",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 34,
       "name": "Procesos de Separación",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 28,
@@ -342,6 +412,8 @@
     {
       "id": 35,
       "name": "Procesos de Transferencia de Calor",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 21,
@@ -357,6 +429,8 @@
     {
       "id": 36,
       "name": "Cinética y Catálisis",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 23,
@@ -372,12 +446,16 @@
     {
       "id": 37,
       "name": "Asignatura Optativa Disciplinar",
+      "category": "disciplinary",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 38,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     }
@@ -386,6 +464,8 @@
     {
       "id": 39,
       "name": "Humanidades para Ingenierías",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 1,
@@ -397,6 +477,8 @@
     {
       "id": 40,
       "name": "Laboratorio de Ingeniería Química I",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 29,
@@ -412,6 +494,8 @@
     {
       "id": 41,
       "name": "Ingeniería de las Reacciones Químicas",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 36,
@@ -427,12 +511,16 @@
     {
       "id": 42,
       "name": "Asignatura Optativa Disciplinar",
+      "category": "disciplinary",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 43,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     }
@@ -441,6 +529,8 @@
     {
       "id": 44,
       "name": "Ingeniería de Procesos I",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 41,
@@ -456,6 +546,8 @@
     {
       "id": 45,
       "name": "Laboratorio de Ingeniería Química II",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 40,
@@ -467,12 +559,16 @@
     {
       "id": 46,
       "name": "Asignatura Optativa Disciplinar",
+      "category": "disciplinary",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 47,
       "name": "Control de Procesos",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 41,
@@ -488,6 +584,8 @@
     {
       "id": 48,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     }
@@ -496,6 +594,8 @@
     {
       "id": 49,
       "name": "Formulación y Evaluación de Proyectos en Industrias de Procesos",
+      "category": "fundamental",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 33,
@@ -512,6 +612,8 @@
     {
       "id": 50,
       "name": "Ingeniería de Procesos II",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 44,
@@ -523,6 +625,8 @@
     {
       "id": 51,
       "name": "Taller de Procesos Productivos",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 45,
@@ -539,18 +643,24 @@
     {
       "id": 52,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 53,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 54,
       "name": "Asignatura Optativa Disciplinar",
+      "category": "disciplinary",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     }
@@ -559,6 +669,8 @@
     {
       "id": 55,
       "name": "Trabajo de Grado",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [],
       "corequired": [
         {
@@ -570,6 +682,8 @@
     {
       "id": 56,
       "name": "Diseño de Plantas y Equipos",
+      "category": "disciplinary",
+      "type": "mandatory",
       "prerequired": [
         {
           "id": 50,
@@ -581,18 +695,24 @@
     {
       "id": 57,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 58,
       "name": "Asignatura Optativa Disciplinar",
+      "category": "disciplinary",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     },
     {
       "id": 59,
       "name": "Libre Elección",
+      "category": "elective",
+      "type": "optional",
       "prerequired": [],
       "corequired": []
     }

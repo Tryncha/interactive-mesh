@@ -20,11 +20,23 @@ const Subject = ({ subjectObj }) => {
   return (
     <>
       {verifyRequired(completedSubjectsIds, subjectObj) ? (
-        <div className={`Subject Subject--${isActive ? 'active' : 'deactive'}`} onClick={toggleSubject}>
-          {subjectObj.name}
+        <div
+          className={isActive ? 'Subject is-active' : 'Subject'}
+          onClick={toggleSubject}>
+          <div className="Subject-name">{subjectObj.name}</div>
+          <div className="Subject-footer">
+            <div className={`Subject-category Subject--${subjectObj.category}`} />
+            <div className={`Subject-type Subject--${subjectObj.type}`} />
+          </div>
         </div>
       ) : (
-        <div className={`Subject Subject--disabled`}>{subjectObj.name}</div>
+        <div className="Subject is-disabled">
+          <div className="Subject-name">{subjectObj.name}</div>
+          <div className="Subject-footer">
+            <div className={`Subject-category Subject--${subjectObj.category} is-disabled`} />
+            <div className={`Subject-type Subject--${subjectObj.type} is-disabled`} />
+          </div>
+        </div>
       )}
     </>
   );
