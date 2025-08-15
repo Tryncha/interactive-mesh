@@ -6,7 +6,7 @@ import './Subject.css';
 const Subject = ({ subjectObj }) => {
   const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
   const isActive = completedSubjectsIds.includes(subjectObj.id);
-  const [isHover, setIsHover] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   function toggleSubject() {
     if (!completedSubjectsIds.includes(subjectObj.id)) {
@@ -19,11 +19,11 @@ const Subject = ({ subjectObj }) => {
   }
 
   function handleMouseEnter() {
-    setIsHover(true);
+    setIsHovering(true);
   }
 
   function handleMouseLeave() {
-    setIsHover(false);
+    setIsHovering(false);
   }
 
   return (
@@ -31,7 +31,19 @@ const Subject = ({ subjectObj }) => {
       {verifyRequired(completedSubjectsIds, subjectObj) ? (
         <div
           className={isActive ? 'Subject is-active' : 'Subject'}
-          onClick={toggleSubject}>
+          onClick={toggleSubject}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}>
+          {isHovering && subjectObj.corequired.length > 0 ? (
+            <div className="Subject-tooltip">
+              <span className="Subject-tooltipTitle">Correquisitos</span>
+              <ul>
+                {subjectObj.corequired.map((pre) => (
+                  <li key={pre.id}>{pre.name}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           <div className="Subject-name">{subjectObj.name}</div>
           <div className="Subject-footer">
             <div className={`Subject-category Subject--${subjectObj.category}`} />
@@ -43,7 +55,7 @@ const Subject = ({ subjectObj }) => {
           className="Subject is-disabled"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
-          {isHover ? (
+          {isHovering ? (
             <div className="Subject-tooltip">
               <span className="Subject-tooltipTitle">Prerrequisitos</span>
               <ul>
@@ -51,6 +63,16 @@ const Subject = ({ subjectObj }) => {
                   <li key={pre.id}>{pre.name}</li>
                 ))}
               </ul>
+              {subjectObj.corequired.length > 0 ? (
+                <>
+                  <span className="Subject-tooltipTitle">Correquisitos</span>
+                  <ul>
+                    {subjectObj.corequired.map((pre) => (
+                      <li key={pre.id}>{pre.name}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
             </div>
           ) : null}
           <div className="Subject-name">{subjectObj.name}</div>

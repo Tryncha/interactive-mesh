@@ -2,17 +2,20 @@ import { useContext } from 'react';
 import MeshContext from './context/MeshContext';
 import subjectsPerSemester from './constants/subjectsPerSemester.json';
 import Subject from './components/Subject/Subject';
+import confetti from 'canvas-confetti';
 
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
-  const { setCompletedSubjectsIds } = useContext(MeshContext);
+  const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
 
   function resetSubjects() {
     if (window.confirm('Are you sure you want to reset?')) {
       setCompletedSubjectsIds([]);
     }
   }
+
+  if (completedSubjectsIds.length === 60) confetti();
 
   return (
     <main className="u-mainPage">

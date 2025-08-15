@@ -60,32 +60,56 @@
   background-color: var(--Subject-fundamentalColor);
 }
 
+.Subject--fundamental::before {
+  content: 'Fundamentación';
+  font-size: 14px;
+}
+
 .Subject--disciplinary {
   background-color: var(--Subject-disciplinaryColor);
+}
+
+.Subject--disciplinary::before {
+  content: 'Disciplinar';
+  font-size: 14px;
 }
 
 .Subject--elective {
   background-color: var(--Subject-electiveColor);
 }
 
+.Subject--elective::before {
+  content: 'Libre Elección';
+  font-size: 14px;
+}
+
 .Subject--foreignLanguage {
   background-color: var(--Subject-foreignLanguageColor);
 }
 
+.Subject--foreignLanguage::before {
+  content: 'Lengua Extranjera';
+  font-size: 14px;
+}
+
 .Subject--fundamental.is-disabled {
   background-color: var(--Subject--isDisabled-fundamentalColor);
+  color: white;
 }
 
 .Subject--disciplinary.is-disabled {
   background-color: var(--Subject--isDisabled-disciplinaryColor);
+  color: white;
 }
 
 .Subject--elective.is-disabled {
   background-color: var(--Subject--isDisabled-electiveColor);
+  color: white;
 }
 
 .Subject--foreignLanguage.is-disabled {
   background-color: var(--Subject--isDisabled-foreignLanguageColor);
+  color: white;
 }
 
 .Subject-type {
