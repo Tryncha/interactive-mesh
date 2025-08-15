@@ -47,7 +47,14 @@ const Subject = ({ subjectObj }) => {
           <div className="Subject-name">{subjectObj.name}</div>
           <div className="Subject-footer">
             <div className={`Subject-category Subject--${subjectObj.category}`} />
-            <div className={`Subject-type Subject--${subjectObj.type}`} />
+            <div className={`Subject-type Subject--${subjectObj.type}`}>
+              <img
+                src={subjectObj.type === 'mandatory' ? 'images/cap.png' : 'images/heart.png'}
+                alt={subjectObj.type === 'mandatory' ? 'Cap Icon' : 'Heart Icon'}
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
         </div>
       ) : (
@@ -78,7 +85,14 @@ const Subject = ({ subjectObj }) => {
           <div className="Subject-name">{subjectObj.name}</div>
           <div className="Subject-footer">
             <div className={`Subject-category Subject--${subjectObj.category} is-disabled`} />
-            <div className={`Subject-type Subject--${subjectObj.type} is-disabled`} />
+            <div className={`Subject-type Subject--${subjectObj.type} is-disabled`}>
+              <img
+                src={subjectObj.type === 'mandatory' ? 'images/cap.png' : 'images/heart.png'}
+                alt={subjectObj.type === 'mandatory' ? 'Cap Icon' : 'Heart Icon'}
+                width={20}
+                height={20}
+              />
+            </div>
           </div>
         </div>
       )}
