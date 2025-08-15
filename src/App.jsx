@@ -9,7 +9,9 @@ const App = () => {
   const { setCompletedSubjectsIds } = useContext(MeshContext);
 
   function resetSubjects() {
-    setCompletedSubjectsIds([]);
+    if (window.confirm('Are you sure you want to reset?')) {
+      setCompletedSubjectsIds([]);
+    }
   }
 
   return (
