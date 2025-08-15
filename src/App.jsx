@@ -13,12 +13,12 @@ const App = () => {
   }
 
   return (
-    <main>
+    <main className="u-mainPage">
       <section className="Mesh">
         {subjectsPerSemester.map((semester, i) => (
           <div
             key={i}
-            className="Mesh-row">
+            className="Mesh-column">
             <h2 className="Mesh-semesterNumber">{romanNumbers[i]}</h2>
             {semester.map((subjectObj) => (
               <Subject

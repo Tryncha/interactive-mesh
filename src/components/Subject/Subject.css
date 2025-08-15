@@ -12,6 +12,7 @@
   border-radius: 2px;
   cursor: pointer;
   box-shadow: 2px 2px 5px var(--Subject-boxShadow);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .Subject-name {
@@ -89,4 +90,68 @@
 
 .Subject--optional.is-disabled {
   background-color: var(--Subject--isDisabled-optionalColor);
+}
+
+/* Media Queries para Responsive Design */
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .Subject {
+    width: 100%;
+    min-width: 140px;
+    height: 90px;
+  }
+
+  .Subject-name {
+    font-size: 11px;
+    padding: 4px 3px;
+  }
+
+  .Subject-footer {
+    height: 18px;
+  }
+}
+
+/* Móviles */
+@media screen and (max-width: 480px) {
+  .Subject {
+    width: 100%;
+    min-width: 120px;
+    height: 80px;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  .Subject-name {
+    font-size: 10px;
+    padding: 3px 2px;
+    margin: auto 3px;
+  }
+
+  .Subject-footer {
+    height: 16px;
+  }
+
+  .Subject:hover:not(.is-disabled) {
+    transform: none;
+    box-shadow: 2px 2px 5px var(--Subject-boxShadow);
+  }
+}
+
+/* Móviles muy pequeños */
+@media screen and (max-width: 320px) {
+  .Subject {
+    height: 75px;
+    min-width: 110px;
+  }
+
+  .Subject-name {
+    font-size: 9px;
+    padding: 2px 1px;
+    margin: auto 2px;
+  }
+
+  .Subject-footer {
+    height: 14px;
+  }
 }

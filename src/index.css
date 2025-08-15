@@ -48,6 +48,14 @@ body {
   font-family: 'Ancizar Sans';
 }
 
+.u-mainPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-x: auto;
+}
+
 .u-hr {
   width: 90%;
   border-top: 1px solid var(--body-borderColor);
@@ -62,26 +70,132 @@ body {
   color: #fff;
   padding: 8px 30px;
   border-radius: 5px;
-  margin-left: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .u-resetButton:hover {
-  background-color: #a53b3b;
+  background-color: #8b3030;
 }
 
 .Mesh {
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 15px;
+  justify-content: space-between;
 }
 
 .Mesh-semesterNumber {
+  font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
 
-.Mesh-row {
+.Mesh-column {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
+  min-width: 170px;
+  flex-shrink: 0;
+}
+
+/* Media Queries para Responsive Design */
+
+/* Tablets en orientación portrait */
+@media screen and (max-width: 768px) {
+  main {
+    padding: 15px;
+  }
+
+  .Mesh {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .Mesh-row {
+    width: 100%;
+    max-width: 600px;
+    min-width: auto;
+  }
+
+  .Mesh-semesterNumber {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 10px;
+    background-color: rgba(70, 70, 70, 0.1);
+    border-radius: 5px;
+  }
+
+  /* Grid para materias en tablets */
+  .Mesh-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+
+  .Mesh-row .Mesh-semesterNumber {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+  }
+
+  .u-resetButton {
+    font-size: 18px;
+    padding: 12px 40px;
+    margin: 20px auto;
+  }
+}
+
+/* Móviles */
+@media screen and (max-width: 480px) {
+  main {
+    padding: 10px;
+  }
+
+  .Mesh-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  .Mesh-semesterNumber {
+    font-size: 18px;
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .u-resetButton {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 15px auto;
+  }
+
+  .u-hr {
+    width: 95%;
+    margin: 15px auto;
+  }
+}
+
+/* Móviles muy pequeños */
+@media screen and (max-width: 320px) {
+  main {
+    padding: 8px;
+  }
+
+  .Mesh {
+    gap: 15px;
+  }
+
+  .Mesh-semesterNumber {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .u-resetButton {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
