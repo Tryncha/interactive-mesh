@@ -10,7 +10,7 @@ const App = () => {
   const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
 
   function resetSubjects() {
-    if (window.confirm('Are you sure you want to reset?')) {
+    if (window.confirm('¿Seguro que quieres reiniciar la malla?')) {
       setCompletedSubjectsIds([]);
     }
   }
@@ -38,7 +38,7 @@ const App = () => {
       <button
         className="u-resetButton"
         onClick={resetSubjects}>
-        Reset
+        Reiniciar
       </button>
     </main>
   );
