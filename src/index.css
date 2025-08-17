@@ -1,7 +1,11 @@
 :root {
+  /* --- body --- */
   --body-backgroundColor: #ebebeb;
   --body-borderColor: #1f1f1f;
   --body-fontColor: #464646;
+
+  /* --- header --- */
+  --header-backgroundColor: #dadada;
 
   /* --- Subject --- */
   --Subject-backgroundColor: #eee;
@@ -48,19 +52,40 @@ body {
   font-family: 'Ancizar Sans';
 }
 
-.u-mainPage {
-  width: 100%;
+#root {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  overflow-x: auto;
+}
+
+header {
+  background-color: var(--header-backgroundColor);
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--body-borderColor);
+}
+
+header > h1 {
+  height: 28px;
+  font-size: 26px;
+}
+
+header > h2 {
+  height: 20px;
+  font-size: 18px;
+  font-style: italic;
 }
 
 .u-hr {
   width: 95%;
+  border: none;
   border-top: 1px solid var(--body-borderColor);
   margin: 20px auto;
+}
+
+.u-vr {
+  height: 120%;
+  border: none;
+  border-left: 1px solid var(--body-borderColor);
+  margin: auto 20px;
 }
 
 .u-resetButton {
@@ -71,7 +96,7 @@ body {
   color: #fff;
   padding: 8px 30px;
   border-radius: 5px;
-  margin: 0 70px;
+  margin: 0 50px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -80,24 +105,16 @@ body {
   background-color: #8b3030;
 }
 
-.Mesh {
-  min-width: 1700px;
+.MeshInfo {
+  width: 100%;
+  height: 40px;
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
-.Mesh-semesterNumber {
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-}
-
-.Mesh-column {
+.MeshInfo-progress {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  min-width: 170px;
-  flex-shrink: 0;
 }
 
 /* Media Queries para Responsive Design */
