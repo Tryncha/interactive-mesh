@@ -1,19 +1,8 @@
 import { useContext } from 'react';
 import MeshContext from './context/MeshContext';
 import confetti from 'canvas-confetti';
-// import Mesh from './components/Mesh/Mesh';
-// import MeshInfo from './components/MeshInfo/MeshInfo';
 import subjectsPerSemester from './constants/subjectsPerSemester.json';
 import Subject from './components/Subject/Subject';
-
-const Header = () => {
-  return (
-    <header>
-      <h1>Malla Curricular Interactiva - Ingeniería Química</h1>
-      <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
-    </header>
-  );
-};
 
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
@@ -30,7 +19,24 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <header>
+        <div>
+          <h1>Malla Curricular Interactiva - Ingeniería Química</h1>
+          <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
+        </div>
+        <div className="MeshInfo">
+          <div className="MeshInfo-progress">
+            <span>Créditos: 20/60</span>
+            <span>Progreso: 80%</span>
+          </div>
+          <button
+            className="u-resetButton"
+            onClick={resetSubjects}
+          >
+            Reiniciar
+          </button>
+        </div>
+      </header>
       <main>
         <section className="Mesh">
           {subjectsPerSemester.map((semester, i) => (
@@ -48,21 +54,8 @@ const App = () => {
             </div>
           ))}
         </section>
-        <hr className="u-hr" />
-        <section className="MeshInfo">
-          <button
-            className="u-resetButton"
-            onClick={resetSubjects}
-          >
-            Reiniciar
-          </button>
-          <hr className="u-vr" />
-          <div className="MeshInfo-progress">
-            <span>Créditos: 20/60</span>
-            <span>Progreso: 80%</span>
-          </div>
-        </section>
       </main>
+      <footer>Version 0.1 - Hecho por Tryncha</footer>
     </>
   );
 };

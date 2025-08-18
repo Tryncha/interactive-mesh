@@ -58,17 +58,19 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   background-color: var(--header-backgroundColor);
   padding: 5px 10px;
   border-bottom: 1px solid var(--body-borderColor);
 }
 
-header > h1 {
+header h1 {
   height: 28px;
   font-size: 26px;
 }
 
-header > h2 {
+header h2 {
   height: 20px;
   font-size: 18px;
   font-style: italic;
@@ -77,8 +79,16 @@ header > h2 {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: var(--header-backgroundColor);
+  font-style: italic;
+  color: #4d4d4d;
+  padding: 2px 5px;
+  border-top: 1px solid var(--body-borderColor);
 }
 
 .u-hr {
@@ -99,11 +109,13 @@ main {
   text-transform: uppercase;
   font-weight: bold;
   background-color: #a53b3b;
-  font-size: 16px;
+  font-family: 'Ancizar Sans';
+  font-size: 20px;
+  font-weight: bold;
   color: #fff;
-  padding: 8px 30px;
+  padding: 5px 30px;
+  border: 1px solid var(--body-borderColor);
   border-radius: 5px;
-  margin: 0 50px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -113,11 +125,10 @@ main {
 }
 
 .Mesh {
-  width: 100vw;
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  padding: 20px 60px;
+  padding: 20px 80px 70px;
   overflow-x: auto;
 }
 
@@ -133,10 +144,10 @@ main {
 }
 
 .MeshInfo {
-  width: 100%;
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  gap: 30px;
+  margin-right: 20px;
 }
 
 .MeshInfo-progress {
