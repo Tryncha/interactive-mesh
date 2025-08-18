@@ -17,6 +17,11 @@ const App = () => {
 
   if (completedSubjectsIds.length === 60) confetti();
 
+  const totalCredits = subjectsPerSemester.reduce(
+    (acc, current) => current.reduce((acc, current) => current.credits + acc, 0) + acc,
+    0
+  );
+
   return (
     <>
       <header>
@@ -26,7 +31,7 @@ const App = () => {
         </div>
         <div className="MeshInfo">
           <div className="MeshInfo-progress">
-            <span>Créditos: 20/60</span>
+            <span>Créditos: 20/{totalCredits}</span>
             <span>Progreso: 80%</span>
           </div>
           <button

@@ -8,7 +8,6 @@ const Subject = ({ subjectObj }) => {
   const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
   const isActive = completedSubjectsIds.includes(subjectObj.id);
   const [isHovering, setIsHovering] = useState(false);
-  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   function toggleSubject() {
     if (!completedSubjectsIds.includes(subjectObj.id)) {
@@ -28,15 +27,6 @@ const Subject = ({ subjectObj }) => {
     setIsHovering(false);
   }
 
-  console.log(subjectObj);
-
-  // function handleMouseMove(event) {
-  //   const { clientX, clientY } = event;
-  //   setMousePosition({ x: clientX, y: clientY });
-  // }
-
-  // console.log(mousePosition);
-
   return (
     <>
       {verifyRequired(completedSubjectsIds, subjectObj) ? (
@@ -45,19 +35,25 @@ const Subject = ({ subjectObj }) => {
           onClick={toggleSubject}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          // onMouseMove={handleMouseMove}
         >
-          {isHovering && subjectObj.corequired.length > 0 ? (
-            <div
-              className="Subject-tooltip"
-              // style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
-            >
-              <span className="Subject-tooltipTitle">Correquisitos</span>
+          {isHovering && subjectObj.prerequired.length > 0 ? (
+            <div className="Subject-tooltip">
+              <span className="Subject-tooltipTitle">Prerrequisitos</span>
               <ul>
-                {subjectObj.corequired.map((pre) => (
+                {subjectObj.prerequired.map((pre) => (
                   <li key={pre.id}>{pre.name}</li>
                 ))}
               </ul>
+              {subjectObj.corequired.length > 0 ? (
+                <>
+                  <span className="Subject-tooltipTitle">Correquisitos</span>
+                  <ul>
+                    {subjectObj.corequired.map((pre) => (
+                      <li key={pre.id}>{pre.name}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
             </div>
           ) : null}
           <div className="Subject-name">{subjectObj.name}</div>
@@ -74,7 +70,7 @@ const Subject = ({ subjectObj }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {isHovering ? (
+          {isHovering && subjectObj.prerequired.length > 0 ? (
             <div className="Subject-tooltip">
               <span className="Subject-tooltipTitle">Prerrequisitos</span>
               <ul>
