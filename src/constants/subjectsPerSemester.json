@@ -5,6 +5,7 @@
       "name": "Cálculo Diferencial",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [],
       "corequired": []
     },
@@ -13,6 +14,7 @@
       "name": "Asignatura Optativa Fundamentación",
       "category": "fundamental",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -21,6 +23,7 @@
       "name": "Química General I",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [],
       "corequired": []
     },
@@ -29,6 +32,7 @@
       "name": "Introducción a la Ingeniería Química",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [],
       "corequired": []
     },
@@ -37,6 +41,7 @@
       "name": "Programación en Ingeniería",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [],
       "corequired": []
     }
@@ -47,6 +52,7 @@
       "name": "Cálculo Integral",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 0,
@@ -60,6 +66,7 @@
       "name": "Álgebra Lineal",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 0,
@@ -73,6 +80,7 @@
       "name": "Química General II",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 2,
@@ -86,6 +94,7 @@
       "name": "Física: Mecánica",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 0,
@@ -99,6 +108,7 @@
       "name": "Laboratorio de Química General",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [],
       "corequired": [
         {
@@ -112,6 +122,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -120,6 +131,7 @@
       "name": "Inglés I",
       "category": "foreignLanguage",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [],
       "corequired": []
     }
@@ -130,6 +142,7 @@
       "name": "Cálculo Vectorial",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 5,
@@ -143,6 +156,7 @@
       "name": "Asignatura Optativa Fundamentación",
       "category": "fundamental",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -151,6 +165,7 @@
       "name": "Laboratorio de Química Analítica",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [],
       "corequired": [
         {
@@ -164,6 +179,7 @@
       "name": "Química Analítica",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [],
       "corequired": []
     },
@@ -172,6 +188,7 @@
       "name": "Termodinámica I",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 5,
@@ -185,6 +202,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -193,6 +211,7 @@
       "name": "Inglés II",
       "category": "foreignLanguage",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 11,
@@ -208,6 +227,7 @@
       "name": "Ecuaciones Diferenciales",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 12,
@@ -221,6 +241,7 @@
       "name": "Biología Celular y Microbiología",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [],
       "corequired": [
         {
@@ -234,6 +255,7 @@
       "name": "Mecánica de Fluidos",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 8,
@@ -251,6 +273,7 @@
       "name": "Química Orgánica",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 15,
@@ -264,6 +287,7 @@
       "name": "Termodinámica II",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 16,
@@ -277,6 +301,7 @@
       "name": "Principios de los Procesos Químicos",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 16,
@@ -290,6 +315,7 @@
       "name": "Inglés III",
       "category": "foreignLanguage",
       "type": "mandatory",
+      "credits": 0,
       "prerequired": [
         {
           "id": 18,
@@ -305,6 +331,7 @@
       "name": "Métodos Numéricos Aplicados a Ingeniería Química",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 19,
@@ -318,6 +345,7 @@
       "name": "Bioquímica",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 20,
@@ -331,6 +359,7 @@
       "name": "Fenómenos de Transferencia",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 24,
@@ -349,6 +378,7 @@
       "name": "Laboratorio de Química Orgánica",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [
         {
           "id": 22,
@@ -362,6 +392,7 @@
       "name": "Operaciones con Sólidos",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [],
       "corequired": []
     },
@@ -370,6 +401,7 @@
       "name": "Probabilidad y Estadística",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [],
       "corequired": []
     },
@@ -378,6 +410,7 @@
       "name": "Inglés IV",
       "category": "foreignLanguage",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 25,
@@ -393,6 +426,7 @@
       "name": "Fundamentos de Economía",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [],
       "corequired": []
     },
@@ -401,6 +435,7 @@
       "name": "Procesos de Separación",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 28,
@@ -414,6 +449,7 @@
       "name": "Procesos de Transferencia de Calor",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 21,
@@ -431,6 +467,7 @@
       "name": "Cinética y Catálisis",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [
         {
           "id": 23,
@@ -448,6 +485,7 @@
       "name": "Asignatura Optativa Disciplinar",
       "category": "disciplinary",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -456,6 +494,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     }
@@ -466,6 +505,7 @@
       "name": "Humanidades para Ingenierías",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [
         {
           "id": 1,
@@ -479,6 +519,7 @@
       "name": "Laboratorio de Ingeniería Química I",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [
         {
           "id": 29,
@@ -496,6 +537,7 @@
       "name": "Ingeniería de las Reacciones Químicas",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 36,
@@ -513,6 +555,7 @@
       "name": "Asignatura Optativa Disciplinar",
       "category": "disciplinary",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -521,6 +564,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     }
@@ -531,6 +575,7 @@
       "name": "Ingeniería de Procesos I",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 41,
@@ -548,6 +593,7 @@
       "name": "Laboratorio de Ingeniería Química II",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 2,
       "prerequired": [
         {
           "id": 40,
@@ -561,6 +607,7 @@
       "name": "Asignatura Optativa Disciplinar",
       "category": "disciplinary",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -569,6 +616,7 @@
       "name": "Control de Procesos",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 4,
       "prerequired": [
         {
           "id": 41,
@@ -586,6 +634,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     }
@@ -596,6 +645,7 @@
       "name": "Formulación y Evaluación de Proyectos en Industrias de Procesos",
       "category": "fundamental",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 33,
@@ -614,6 +664,7 @@
       "name": "Ingeniería de Procesos II",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 44,
@@ -627,6 +678,7 @@
       "name": "Taller de Procesos Productivos",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 45,
@@ -645,6 +697,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -653,6 +706,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -661,6 +715,7 @@
       "name": "Asignatura Optativa Disciplinar",
       "category": "disciplinary",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     }
@@ -671,6 +726,7 @@
       "name": "Trabajo de Grado",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 6,
       "prerequired": [],
       "corequired": [
         {
@@ -684,6 +740,7 @@
       "name": "Diseño de Plantas y Equipos",
       "category": "disciplinary",
       "type": "mandatory",
+      "credits": 3,
       "prerequired": [
         {
           "id": 50,
@@ -697,6 +754,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -705,6 +763,7 @@
       "name": "Asignatura Optativa Disciplinar",
       "category": "disciplinary",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     },
@@ -713,6 +772,7 @@
       "name": "Libre Elección",
       "category": "elective",
       "type": "optional",
+      "credits": 0,
       "prerequired": [],
       "corequired": []
     }
