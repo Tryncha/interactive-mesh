@@ -74,6 +74,13 @@ header > h2 {
   font-style: italic;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .u-hr {
   width: 95%;
   border: none;
@@ -105,11 +112,31 @@ header > h2 {
   background-color: #8b3030;
 }
 
+.Mesh {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 60px;
+  overflow-x: auto;
+}
+
+.Mesh-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Mesh-semesterNumber {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
 .MeshInfo {
   width: 100%;
-  height: 40px;
   display: flex;
   align-items: center;
+  padding: 20px 0;
 }
 
 .MeshInfo-progress {

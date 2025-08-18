@@ -17,9 +17,10 @@
 }
 
 .Subject-tooltip {
-  width: 200%;
+  width: 210px;
   position: absolute;
-  top: 80px;
+  top: 110px;
+  /* left: -220px; */
   padding: 10px 30px;
   border: 1px solid black;
   color: black;

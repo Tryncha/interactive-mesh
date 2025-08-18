@@ -8,6 +8,7 @@ const Subject = ({ subjectObj }) => {
   const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
   const isActive = completedSubjectsIds.includes(subjectObj.id);
   const [isHovering, setIsHovering] = useState(false);
+  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   function toggleSubject() {
     if (!completedSubjectsIds.includes(subjectObj.id)) {
@@ -27,6 +28,15 @@ const Subject = ({ subjectObj }) => {
     setIsHovering(false);
   }
 
+  console.log(subjectObj);
+
+  // function handleMouseMove(event) {
+  //   const { clientX, clientY } = event;
+  //   setMousePosition({ x: clientX, y: clientY });
+  // }
+
+  // console.log(mousePosition);
+
   return (
     <>
       {verifyRequired(completedSubjectsIds, subjectObj) ? (
@@ -35,9 +45,13 @@ const Subject = ({ subjectObj }) => {
           onClick={toggleSubject}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
+          // onMouseMove={handleMouseMove}
         >
           {isHovering && subjectObj.corequired.length > 0 ? (
-            <div className="Subject-tooltip">
+            <div
+              className="Subject-tooltip"
+              // style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
+            >
               <span className="Subject-tooltipTitle">Correquisitos</span>
               <ul>
                 {subjectObj.corequired.map((pre) => (

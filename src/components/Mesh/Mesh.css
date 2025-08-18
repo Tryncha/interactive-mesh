@@ -1,17 +1,16 @@
 .Mesh {
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 0;
+  gap: 10px;
+  padding: 20px 40px;
   overflow-x: auto;
 }
 
 .Mesh-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
-  min-width: 170px;
-  flex-shrink: 0;
 }
 
 .Mesh-semesterNumber {
