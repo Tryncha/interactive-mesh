@@ -3,6 +3,7 @@ import MeshContext from './context/MeshContext';
 import confetti from 'canvas-confetti';
 import subjectsPerSemester from './constants/subjectsPerSemester.json';
 import Subject from './components/Subject/Subject';
+import { verifyRequired } from './utils';
 
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
@@ -54,6 +55,7 @@ const App = () => {
                 <Subject
                   key={subjectObj.id}
                   subjectObj={subjectObj}
+                  isAvailable={verifyRequired(completedSubjectsIds, subjectObj)}
                 />
               ))}
             </div>
