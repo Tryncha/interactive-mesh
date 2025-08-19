@@ -315,7 +315,7 @@
       "name": "Inglés III",
       "category": "foreignLanguage",
       "type": "mandatory",
-      "credits": 0,
+      "credits": 3,
       "prerequired": [
         {
           "id": 18,

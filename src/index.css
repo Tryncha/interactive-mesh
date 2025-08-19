@@ -13,31 +13,50 @@
   --Subject-borderColor: #818181;
   --Subject-fontColor: #464646;
 
-  --Subject--disabled-borderColor: #999999;
-  --Subject--disabled-fontColor: #8b8b8b;
+  --Subject--isDisabled-borderColor: #999999;
+  --Subject--isDisabled-fontColor: #8b8b8b;
 
   --Subject-boxShadow: #969696;
 
   --Subject--isActive-backgroundColor: #d6f0d6;
   --Subject--isDisabled-backgroundColor: #d4d4d4;
 
-  /* --- Subject Category color --- */
-  --Subject-fundamentalColor: #ecab33;
-  --Subject-disciplinaryColor: #459c45;
-  --Subject-electiveColor: #add8e6;
-  --Subject-foreignLanguageColor: #f8c6cf;
+  /* --- Subject-tooltip --- */
+  --Subject-tooltip-backgroundColor: #eee;
 
-  --Subject--isDisabled-fundamentalColor: #c0974b;
-  --Subject--isDisabled-disciplinaryColor: #387c38;
-  --Subject--isDisabled-electiveColor: #90b4c0;
-  --Subject--isDisabled-foreignLanguageColor: #cca7ae;
+  /* --- Subject Category color --- */
+  --Subject--fundamental-backgroundColor: #ecab33;
+  --Subject--disciplinary-backgroundColor: #459c45;
+  --Subject--elective-backgroundColor: #add8e6;
+  --Subject--foreignLanguage-backgroundColor: #f8c6cf;
+
+  --Subject--fundamental-fontColor: #464646;
+  --Subject--disciplinary-fontColor: #464646;
+  --Subject--elective-fontColor: #464646;
+  --Subject--foreignLanguage-fontColor: #464646;
+
+  --Subject--isDisabled--fundamental-backgroundColor: #c0974b;
+  --Subject--isDisabled--disciplinary-backgroundColor: #387c38;
+  --Subject--isDisabled--elective-backgroundColor: #90b4c0;
+  --Subject--isDisabled--foreignLanguage-backgroundColor: #cca7ae;
+
+  --Subject--isDisabled--fundamental-fontColor: #fff;
+  --Subject--isDisabled--disciplinary-fontColor: #fff;
+  --Subject--isDisabled--elective-fontColor: #fff;
+  --Subject--isDisabled--foreignLanguage-fontColor: #fff;
 
   /* --- Subject Type colors --- */
-  --Subject-mandatoryColor: #e23232;
-  --Subject-optionalColor: #2067eb;
+  --Subject--mandatory-backgroundColor: #e23232;
+  --Subject--optional-backgroundColor: #2067eb;
 
-  --Subject--isDisabled-mandatoryColor: #a53b3b;
-  --Subject--isDisabled-optionalColor: #2067eb;
+  --Subject--isDisabled--mandatory-backgroundColor: #a53b3b;
+  --Subject--isDisabled--optional-backgroundColor: #2067eb;
+
+  /* --- SubjectModal --- */
+  --SubjectModal-backgroundColor: #5555556b;
+
+  /* --- SubjectModal-form --- */
+  --SubjectModal-form-backgroundColor: #d4d4d4;
 }
 
 * {

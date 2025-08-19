@@ -1,7 +1,22 @@
+.Subject-tooltip {
+  width: 300px;
+  position: absolute;
+  top: 105px;
+  padding: 10px 30px;
+  border: 1px solid var(--Subject-borderColor);
+  color: var(--Subject-fontColor);
+  background-color: var(--Subject-tooltip-backgroundColor);
+  z-index: 1;
+}
+
+.Subject-tooltipTitle {
+  font-weight: bold;
+}
+
 .Subject {
   position: relative;
   width: 160px;
-  height: 100px;
+  height: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,35 +31,90 @@
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.Subject-tooltip {
-  width: 300px;
-  position: absolute;
-  top: 105px;
-  /* left: -220px; */
-  padding: 10px 30px;
-  border: 1px solid black;
-  color: black;
-  background-color: white;
-  z-index: 1;
-}
-
-.Subject-tooltipTitle {
-  font-weight: bold;
-}
-
-.Subject-name {
-  margin: auto 5px;
-}
-
 .Subject.is-active {
   background-color: var(--Subject--isActive-backgroundColor);
 }
 
 .Subject.is-disabled {
   background-color: var(--Subject--isDisabled-backgroundColor);
-  color: var(--Subject--disabled-fontColor);
-  border: 1px solid var(--Subject--disabled-borderColor);
+  color: var(--Subject--isDisabled-fontColor);
+  border: 1px solid var(--Subject--isDisabled-borderColor);
   cursor: initial;
+}
+
+.Subject-header {
+  width: 100%;
+  height: 18px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Subject-header.Subject--fundamental .Subject-credits {
+  background-color: var(--Subject--fundamental-backgroundColor);
+  color: var(--Subject--fundamental-fontColor);
+}
+
+.Subject-header.Subject--disciplinary .Subject-credits {
+  background-color: var(--Subject--disciplinary-backgroundColor);
+  color: var(--Subject--disciplinary-fontColor);
+}
+
+.Subject-header.Subject--elective .Subject-credits {
+  background-color: var(--Subject--elective-backgroundColor);
+  color: var(--Subject--elective-fontColor);
+}
+
+.Subject-header.Subject--foreignLanguage .Subject-credits {
+  background-color: var(--Subject--foreignLanguage-backgroundColor);
+  color: var(--Subject--foreignLanguage-fontColor);
+}
+
+.Subject.is-disabled .Subject-header.Subject--fundamental .Subject-credits {
+  background-color: var(--Subject--isDisabled--fundamental-backgroundColor);
+  color: var(--Subject--isDisabled--fundamental-fontColor);
+}
+
+.Subject.is-disabled .Subject-header.Subject--disciplinary .Subject-credits {
+  background-color: var(--Subject--isDisabled--disciplinary-backgroundColor);
+  color: var(--Subject--isDisabled--disciplinary-fontColor);
+}
+
+.Subject.is-disabled .Subject-header.Subject--elective .Subject-credits {
+  background-color: var(--Subject--isDisabled--elective-backgroundColor);
+  color: var(--Subject--isDisabled--elective-fontColor);
+}
+
+.Subject.is-disabled .Subject-header.Subject--foreignLanguage .Subject-credits {
+  background-color: var(--Subject--isDisabled--foreignLanguage-backgroundColor);
+  color: var(--Subject--isDisabled--foreignLanguage-fontColor);
+}
+
+.Subject-credits {
+  width: 40%;
+}
+
+.Subject-required {
+  width: 40%;
+  display: flex;
+  border-bottom: 1px solid var(--Subject-borderColor);
+}
+
+.Subject-prerequired {
+  width: 50%;
+  border-left: 1px solid var(--Subject-borderColor);
+}
+
+.Subject-corequired {
+  width: 50%;
+  border-left: 1px solid var(--Subject-borderColor);
+}
+
+.Subject-name {
+  width: 160px;
+  padding: 0 5px;
+  margin: 5px 0;
+  overflow: hidden;
 }
 
 .Subject-footer {
@@ -57,60 +127,64 @@
   width: 70%;
 }
 
-.Subject--fundamental {
-  background-color: var(--Subject-fundamentalColor);
+.Subject-footer > .Subject--fundamental {
+  background-color: var(--Subject--fundamental-backgroundColor);
+  color: var(--Subject--fundamental-fontColor);
 }
 
-.Subject--fundamental::before {
+.Subject-footer > .Subject--fundamental::before {
   content: 'Fundamentación';
   font-size: 14px;
 }
 
-.Subject--disciplinary {
-  background-color: var(--Subject-disciplinaryColor);
+.Subject-footer > .Subject--disciplinary {
+  background-color: var(--Subject--disciplinary-backgroundColor);
+  color: var(--Subject--disciplinary-fontColor);
 }
 
-.Subject--disciplinary::before {
+.Subject-footer > .Subject--disciplinary::before {
   content: 'Disciplinar';
   font-size: 14px;
 }
 
-.Subject--elective {
-  background-color: var(--Subject-electiveColor);
+.Subject-footer > .Subject--elective {
+  background-color: var(--Subject--elective-backgroundColor);
+  color: var(--Subject--elective-fontColor);
 }
 
-.Subject--elective::before {
+.Subject-footer > .Subject--elective::before {
   content: 'Libre Elección';
   font-size: 14px;
 }
 
-.Subject--foreignLanguage {
-  background-color: var(--Subject-foreignLanguageColor);
+.Subject-footer > .Subject--foreignLanguage {
+  background-color: var(--Subject--foreignLanguage-backgroundColor);
+  color: var(--Subject--foreignLanguage-fontColor);
 }
 
-.Subject--foreignLanguage::before {
+.Subject-footer > .Subject--foreignLanguage::before {
   content: 'Lengua Extranjera';
   font-size: 14px;
 }
 
-.Subject--fundamental.is-disabled {
-  background-color: var(--Subject--isDisabled-fundamentalColor);
-  color: white;
+.Subject.is-disabled .Subject-footer > .Subject--fundamental {
+  background-color: var(--Subject--isDisabled--fundamental-backgroundColor);
+  color: var(--Subject--isDisabled--fundamental-fontColor);
 }
 
-.Subject--disciplinary.is-disabled {
-  background-color: var(--Subject--isDisabled-disciplinaryColor);
-  color: white;
+.Subject.is-disabled .Subject-footer > .Subject--disciplinary {
+  background-color: var(--Subject--isDisabled--disciplinary-backgroundColor);
+  color: var(--Subject--isDisabled--disciplinary-fontColor);
 }
 
-.Subject--elective.is-disabled {
-  background-color: var(--Subject--isDisabled-electiveColor);
-  color: white;
+.Subject.is-disabled .Subject-footer > .Subject--elective {
+  background-color: var(--Subject--isDisabled--elective-backgroundColor);
+  color: var(--Subject--isDisabled--elective-fontColor);
 }
 
-.Subject--foreignLanguage.is-disabled {
-  background-color: var(--Subject--isDisabled-foreignLanguageColor);
-  color: white;
+.Subject.is-disabled .Subject-footer > .Subject--foreignLanguage {
+  background-color: var(--Subject--isDisabled--foreignLanguage-backgroundColor);
+  color: var(--Subject--isDisabled--foreignLanguage-fontColor);
 }
 
 .Subject-type {
@@ -118,19 +192,38 @@
 }
 
 .Subject--mandatory {
-  background-color: var(--Subject-mandatoryColor);
+  background-color: var(--Subject--mandatory-backgroundColor);
 }
 
 .Subject--optional {
-  background-color: var(--Subject-optionalColor);
+  background-color: var(--Subject--optional-backgroundColor);
 }
 
-.Subject--mandatory.is-disabled {
-  background-color: var(--Subject--isDisabled-mandatoryColor);
+.Subject.is-disabled .Subject--mandatory {
+  background-color: var(--Subject--isDisabled--mandatory-backgroundColor);
 }
 
-.Subject--optional.is-disabled {
-  background-color: var(--Subject--isDisabled-optionalColor);
+.Subject.is-disabled .Subject--optional {
+  background-color: var(--Subject--isDisabled--optional-backgroundColor);
+}
+
+.SubjectModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--SubjectModal-backgroundColor);
+  z-index: 2;
+}
+
+.SubjectModal-form {
+  background-color: var(--SubjectModal-form-backgroundColor);
+  padding: 10px;
+  border: 1px solid var(--Subject-borderColor);
 }
 
 /* Media Queries para Responsive Design */
