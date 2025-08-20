@@ -10,18 +10,21 @@ const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X
 const App = () => {
   const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
 
+  const completedCredits = completedSubjects.reduce((acc, current) => current.credits + acc, 0);
+  const totalCredits = subjectsPerSemester.reduce(
+    (acc, current) => current.reduce((acc, current) => current.credits + acc, 0) + acc,
+    0
+  );
+
+  const progress = ((completedCredits / totalCredits) * 100).toFixed(2);
+
   function resetSubjects() {
     if (window.confirm('¿Seguro/a que quieres reiniciar la malla?')) {
       setCompletedSubjects([]);
     }
   }
 
-  if (completedSubjects.length === 60) confetti();
-
-  const totalCredits = subjectsPerSemester.reduce(
-    (acc, current) => current.reduce((acc, current) => current.credits + acc, 0) + acc,
-    0
-  );
+  if (completedSubjects.length === 60 || progress === 100) confetti();
 
   return (
     <>
@@ -32,8 +35,10 @@ const App = () => {
         </div>
         <div className="MeshInfo">
           <div className="MeshInfo-progress">
-            <span>Créditos: 20/{totalCredits}</span>
-            <span>Progreso: 80%</span>
+            <span>
+              Créditos: {completedCredits}/{totalCredits}
+            </span>
+            <span>Progreso: {progress}%</span>
           </div>
           <button
             className="u-resetButton"

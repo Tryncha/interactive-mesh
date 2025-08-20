@@ -18,12 +18,13 @@ const Subject = ({ subjectObj, isAvailable }) => {
 
   function toggleSubject() {
     if (!completedSubjects.includes(subjectObj)) {
-      if (subjectObj.type === 'optional') {
-        console.log('optional here');
-        setIsModalOpen(true);
-      } else {
-        setCompletedSubjects([...completedSubjects, subjectObj]);
-      }
+      // if (subjectObj.type === 'optional') {
+      //   console.log('optional here');
+      //   setIsModalOpen(true);
+      // } else {
+      //   setCompletedSubjects([...completedSubjects, subjectObj]);
+      // }
+      setCompletedSubjects([...completedSubjects, subjectObj]);
     } else {
       const withoutSubjectId = completedSubjects.filter((sbj) => sbj !== subjectObj);
       const cleanedCompleted = verifyCompleted(withoutSubjectId);
