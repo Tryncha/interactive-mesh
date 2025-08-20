@@ -1,31 +1,33 @@
 import { useContext, useId, useState } from 'react';
-import { verifyCompletedIds } from '../../utils';
+import { verifyCompleted } from '../../utils';
 import MeshContext from '../../context/MeshContext';
 import './Subject.css';
 import { CapIcon, HeartIcon } from '../Icons';
 
 const Subject = ({ subjectObj, isAvailable }) => {
-  const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
-  const isActive = completedSubjectsIds.includes(subjectObj.id);
+  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
   const [isHovering, setIsHovering] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const SUBJECT_NAME_MAX_LENGTH = 60;
 
   const optionalSubjectNameInputId = useId();
   const optionalSubjectCreditsInputId = useId();
 
+  const subjectIds = completedSubjects.map((sbj) => sbj.id);
+  const isActive = subjectIds.includes(subjectObj.id);
+  const SUBJECT_NAME_MAX_LENGTH = 60;
+
   function toggleSubject() {
-    if (!completedSubjectsIds.includes(subjectObj.id)) {
+    if (!completedSubjects.includes(subjectObj)) {
       if (subjectObj.type === 'optional') {
         console.log('optional here');
         setIsModalOpen(true);
       } else {
-        setCompletedSubjectsIds([...completedSubjectsIds, subjectObj.id]);
+        setCompletedSubjects([...completedSubjects, subjectObj]);
       }
     } else {
-      const withoutSubjectId = completedSubjectsIds.filter((sbj) => sbj !== subjectObj.id);
-      const cleanedCompletedIds = verifyCompletedIds(withoutSubjectId);
-      setCompletedSubjectsIds(cleanedCompletedIds);
+      const withoutSubjectId = completedSubjects.filter((sbj) => sbj !== subjectObj);
+      const cleanedCompleted = verifyCompleted(withoutSubjectId);
+      setCompletedSubjects(cleanedCompleted);
     }
   }
 
@@ -122,8 +124,14 @@ const Subject = ({ subjectObj, isAvailable }) => {
             : subjectObj.name}
         </div>
         <div className="Subject-footer">
-          <div className={`Subject-category Subject--${subjectObj.category}`} />
-          <div className={`Subject-type Subject--${subjectObj.type}`}>
+          <div
+            className={`Subject-category Subject--${subjectObj.category}`}
+            title="Categoría"
+          />
+          <div
+            className={`Subject-type Subject--${subjectObj.type}`}
+            title="Tipo"
+          >
             {subjectObj.type === 'mandatory' ? <CapIcon /> : <HeartIcon />}
           </div>
         </div>

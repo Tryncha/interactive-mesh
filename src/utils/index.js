@@ -1,20 +1,21 @@
-import subjectsPerSemester from '../constants/subjectsPerSemester.json';
+export function verifyRequired(completedSubjects, subjectObj) {
+  const hasPreMet = subjectObj.prerequired.every((pre) => {
+    const subjectIds = completedSubjects.map((sbj) => sbj.id);
+    return subjectIds.includes(pre.id);
+  });
 
-export function verifyRequired(completedSubjectsIds, subjectObj) {
-  return subjectObj.prerequired.every((pre) => completedSubjectsIds.includes(pre.id));
+  return hasPreMet;
 }
 
-export function verifyCompletedIds(completedSubjectsIds) {
-  let updatedIds = [...completedSubjectsIds];
+export function verifyCompleted(completedSubjects) {
+  let updatedSubjects = [...completedSubjects];
 
-  updatedIds.forEach((extSbjId) => {
-    const subjectObj = subjectsPerSemester.flat().find((sbj) => sbj.id === extSbjId);
-
-    if (!verifyRequired(updatedIds, subjectObj)) {
-      const withoutNewSubjectId = updatedIds.filter((intSbjId) => intSbjId !== extSbjId);
-      updatedIds = verifyCompletedIds(withoutNewSubjectId);
+  updatedSubjects.forEach((extSbj) => {
+    if (!verifyRequired(updatedSubjects, extSbj)) {
+      const withoutNewSubjectId = updatedSubjects.filter((intSbj) => intSbj !== extSbj);
+      updatedSubjects = verifyCompleted(withoutNewSubjectId);
     }
   });
 
-  return updatedIds;
+  return updatedSubjects;
 }

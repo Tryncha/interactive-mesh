@@ -3,13 +3,11 @@ import { createContext, useState } from 'react';
 const MeshContext = createContext();
 
 export const MeshProvider = ({ children }) => {
-  const [completedSubjectsIds, setCompletedSubjectsIds] = useState([]);
+  const [completedSubjects, setCompletedSubjects] = useState([]);
 
-  // console.log('Completed Subjects Ids: ', completedSubjectsIds);
+  console.log('Completed Subjects: ', completedSubjects);
 
-  return (
-    <MeshContext.Provider value={{ completedSubjectsIds, setCompletedSubjectsIds }}>{children}</MeshContext.Provider>
-  );
+  return <MeshContext.Provider value={{ completedSubjects, setCompletedSubjects }}>{children}</MeshContext.Provider>;
 };
 
 export default MeshContext;

@@ -8,15 +8,15 @@ import { verifyRequired } from './utils';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
-  const { completedSubjectsIds, setCompletedSubjectsIds } = useContext(MeshContext);
+  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
 
   function resetSubjects() {
-    if (window.confirm('¿Seguro que quieres reiniciar la malla?')) {
-      setCompletedSubjectsIds([]);
+    if (window.confirm('¿Seguro/a que quieres reiniciar la malla?')) {
+      setCompletedSubjects([]);
     }
   }
 
-  if (completedSubjectsIds.length === 60) confetti();
+  if (completedSubjects.length === 60) confetti();
 
   const totalCredits = subjectsPerSemester.reduce(
     (acc, current) => current.reduce((acc, current) => current.credits + acc, 0) + acc,
@@ -55,7 +55,7 @@ const App = () => {
                 <Subject
                   key={subjectObj.id}
                   subjectObj={subjectObj}
-                  isAvailable={verifyRequired(completedSubjectsIds, subjectObj)}
+                  isAvailable={verifyRequired(completedSubjects, subjectObj)}
                 />
               ))}
             </div>

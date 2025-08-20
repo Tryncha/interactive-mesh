@@ -1,7 +1,7 @@
 .Subject-tooltip {
   width: 300px;
   position: absolute;
-  top: 105px;
+  top: 115px;
   padding: 10px 30px;
   border: 1px solid var(--Subject-borderColor);
   color: var(--Subject-fontColor);
