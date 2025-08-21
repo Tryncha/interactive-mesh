@@ -1,13 +1,39 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import subjectsPerSemester from '../constants/subjectsPerSemester.json';
 
 const MeshContext = createContext();
 
 export const MeshProvider = ({ children }) => {
+  const [mesh, setMesh] = useState([]);
   const [completedSubjects, setCompletedSubjects] = useState([]);
 
-  console.log('Completed Subjects: ', completedSubjects);
+  useEffect(() => {
+    const localStorageMesh = JSON.parse(localStorage.getItem('mesh'));
+    const localStorageProgress = JSON.parse(localStorage.getItem('completedSubjects'));
 
-  return <MeshContext.Provider value={{ completedSubjects, setCompletedSubjects }}>{children}</MeshContext.Provider>;
+    if (localStorageMesh) {
+      setMesh(localStorageMesh);
+    } else {
+      setMesh(subjectsPerSemester);
+    }
+
+    if (localStorageProgress && localStorageProgress.length !== 0) {
+      setCompletedSubjects(localStorageProgress);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('completedSubjects', JSON.stringify(completedSubjects));
+  }, [completedSubjects]);
+
+  // console.log('Mesh: ', mesh);
+  // console.log('Completed Subjects: ', completedSubjects);
+
+  return (
+    <MeshContext.Provider value={{ mesh, setMesh, completedSubjects, setCompletedSubjects }}>
+      {children}
+    </MeshContext.Provider>
+  );
 };
 
 export default MeshContext;

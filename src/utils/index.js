@@ -12,8 +12,8 @@ export function verifyCompleted(completedSubjects) {
 
   updatedSubjects.forEach((extSbj) => {
     if (!verifyRequired(updatedSubjects, extSbj)) {
-      const withoutNewSubjectId = updatedSubjects.filter((intSbj) => intSbj !== extSbj);
-      updatedSubjects = verifyCompleted(withoutNewSubjectId);
+      const withoutNewSubject = updatedSubjects.filter((intSbj) => intSbj !== extSbj);
+      updatedSubjects = verifyCompleted(withoutNewSubject);
     }
   });
 

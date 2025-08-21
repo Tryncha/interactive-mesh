@@ -1,17 +1,17 @@
 import { useContext } from 'react';
 import MeshContext from './context/MeshContext';
 import confetti from 'canvas-confetti';
-import subjectsPerSemester from './constants/subjectsPerSemester.json';
 import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
 
+const VERSION = '0.1.3';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
-  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
+  const { mesh, completedSubjects, setCompletedSubjects } = useContext(MeshContext);
 
   const completedCredits = completedSubjects.reduce((acc, current) => current.credits + acc, 0);
-  const totalCredits = subjectsPerSemester.reduce(
+  const totalCredits = mesh.reduce(
     (acc, current) => current.reduce((acc, current) => current.credits + acc, 0) + acc,
     0
   );
@@ -50,7 +50,7 @@ const App = () => {
       </header>
       <main>
         <section className="Mesh">
-          {subjectsPerSemester.map((semester, i) => (
+          {mesh.map((semester, i) => (
             <div
               key={i}
               className="Mesh-column"
@@ -67,7 +67,7 @@ const App = () => {
           ))}
         </section>
       </main>
-      <footer>Version 0.1 - Hecho por Tryncha</footer>
+      <footer>Version {VERSION} - Hecho por Tryncha</footer>
     </>
   );
 };

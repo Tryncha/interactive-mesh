@@ -2,12 +2,14 @@ import { useContext, useId, useState } from 'react';
 import { verifyCompleted } from '../../utils';
 import MeshContext from '../../context/MeshContext';
 import './Subject.css';
-import { CapIcon, HeartIcon } from '../Icons';
+import { CapIcon, HeartIcon, PencilIcon } from '../Icons';
 
 const Subject = ({ subjectObj, isAvailable }) => {
-  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
+  const { mesh, setMesh, completedSubjects, setCompletedSubjects } = useContext(MeshContext);
   const [isHovering, setIsHovering] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [optionalSubjectForm, setOptionalSubjectForm] = useState({ name: '', credits: 2 });
 
   const optionalSubjectNameInputId = useId();
   const optionalSubjectCreditsInputId = useId();
@@ -17,19 +19,40 @@ const Subject = ({ subjectObj, isAvailable }) => {
   const SUBJECT_NAME_MAX_LENGTH = 60;
 
   function toggleSubject() {
-    if (!completedSubjects.includes(subjectObj)) {
-      // if (subjectObj.type === 'optional') {
-      //   console.log('optional here');
-      //   setIsModalOpen(true);
-      // } else {
-      //   setCompletedSubjects([...completedSubjects, subjectObj]);
-      // }
+    if (!subjectIds.includes(subjectObj.id)) {
       setCompletedSubjects([...completedSubjects, subjectObj]);
     } else {
-      const withoutSubjectId = completedSubjects.filter((sbj) => sbj !== subjectObj);
-      const cleanedCompleted = verifyCompleted(withoutSubjectId);
+      const withoutSubject = completedSubjects.filter((sbj) => sbj.id !== subjectObj.id);
+      const cleanedCompleted = verifyCompleted(withoutSubject);
       setCompletedSubjects(cleanedCompleted);
     }
+  }
+
+  function handleOptionalSubjectChange(event) {
+    const { name, value } = event.target;
+    setOptionalSubjectForm((prevState) => ({ ...prevState, [name]: value }));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const MeshCopy = [...mesh];
+    const subjectToEdit = MeshCopy.flat().find((sbj) => sbj.id === subjectObj.id);
+
+    subjectToEdit.name = String(optionalSubjectForm.name);
+    subjectToEdit.credits = Number(optionalSubjectForm.credits);
+
+    setMesh(MeshCopy);
+    localStorage.setItem('mesh', JSON.stringify(mesh));
+
+    setCompletedSubjects([...completedSubjects, subjectObj]);
+    setOptionalSubjectForm({ name: '', credits: 2 });
+    setIsModalOpen(false);
+  }
+
+  function handleCancel(event) {
+    event.preventDefault();
+    setIsModalOpen(false);
   }
 
   function handleMouseEnter() {
@@ -44,23 +67,38 @@ const Subject = ({ subjectObj, isAvailable }) => {
     <>
       {isModalOpen ? (
         <div className="SubjectModal">
-          <form className="SubjectModal-form">
-            <div>
-              <label htmlFor={optionalSubjectNameInputId}>Nombre: </label>
-              <input
-                id={optionalSubjectNameInputId}
-                type="text"
-              />
-            </div>
-            <div>
-              <label htmlFor={optionalSubjectCreditsInputId}>Créditos: </label>
-              <input
-                id={optionalSubjectCreditsInputId}
-                type="number"
-              />
-            </div>
+          <form
+            className="SubjectModal-form"
+            onSubmit={handleSubmit}
+          >
+            <fieldset>
+              <legend>Editar asignatura</legend>
+              <div>
+                <label htmlFor={optionalSubjectNameInputId}>Nombre: </label>
+                <input
+                  type="text"
+                  name="name"
+                  id={optionalSubjectNameInputId}
+                  value={optionalSubjectForm.name}
+                  onChange={handleOptionalSubjectChange}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor={optionalSubjectCreditsInputId}>Créditos: </label>
+                <input
+                  type="number"
+                  name="credits"
+                  id={optionalSubjectCreditsInputId}
+                  value={optionalSubjectForm.credits}
+                  onChange={handleOptionalSubjectChange}
+                  min={1}
+                  required
+                />
+              </div>
+            </fieldset>
             <button type="submit">Confirmar</button>
-            <button>Cancelar</button>
+            <button onClick={handleCancel}>Cancelar</button>
           </form>
         </div>
       ) : null}
@@ -99,8 +137,17 @@ const Subject = ({ subjectObj, isAvailable }) => {
             className="Subject-credits"
             title="Créditos"
           >
-            {subjectObj.credits}
+            {subjectObj.credits || '-'}
           </span>
+          {subjectObj.type === 'optional' ? (
+            <span
+              className="Subject-editToggle"
+              title="Editar asignatura"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <PencilIcon />
+            </span>
+          ) : null}
           <div className="Subject-required">
             <span
               className="Subject-prerequired"

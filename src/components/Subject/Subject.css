@@ -94,6 +94,10 @@
   width: 40%;
 }
 
+.Subject-editToggle {
+  width: 20%;
+}
+
 .Subject-required {
   width: 40%;
   display: flex;
@@ -222,8 +226,36 @@
 
 .SubjectModal-form {
   background-color: var(--SubjectModal-form-backgroundColor);
-  padding: 10px;
+  padding: 20px;
   border: 1px solid var(--Subject-borderColor);
+  border-radius: 5px;
+}
+
+.SubjectModal-form fieldset {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.SubjectModal-form fieldset legend {
+  font-weight: bold;
+}
+
+.SubjectModal-form fieldset div {
+  width: 250px;
+  display: flex;
+}
+
+.SubjectModal-form label {
+  width: 50%;
+}
+
+.SubjectModal-form input {
+  width: 50%;
 }
 
 /* Media Queries para Responsive Design */
