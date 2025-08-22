@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
 
-const VERSION = '0.1.4';
+const VERSION = '0.1.5';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
   const progress = ((completedCredits / totalCredits) * 100).toFixed(2);
 
   function resetSubjects() {
-    if (window.confirm('¿Seguro/a que quieres reiniciar la malla?')) {
+    if (confirm('¿Seguro/a que quieres reiniciar la malla?')) {
       setCompletedSubjects([]);
     }
   }
@@ -51,7 +51,7 @@ const App = () => {
       <main>
         <section className="Mesh">
           {mesh.map((semester, i) => (
-            <div
+            <section
               key={i}
               className="Mesh-column"
             >
@@ -63,7 +63,7 @@ const App = () => {
                   isAvailable={verifyRequired(completedSubjects, subjectObj)}
                 />
               ))}
-            </div>
+            </section>
           ))}
         </section>
       </main>

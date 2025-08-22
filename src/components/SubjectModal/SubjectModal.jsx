@@ -16,7 +16,7 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     credits: subjectObj.credits || DEFAULT_CREDITS
   };
 
-  const { mesh, setMesh, completedSubjects, setCompletedSubjects } = useContext(MeshContext);
+  const { mesh, setMesh } = useContext(MeshContext);
   const [subjectForm, setSubjectForm] = useState(initialForm);
 
   function handleFormChange(event) {
@@ -36,8 +36,6 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
 
     setMesh(MeshCopy);
     localStorage.setItem('mesh', JSON.stringify(mesh));
-
-    setCompletedSubjects([...completedSubjects, subjectObj]);
     closeModal();
   }
 
