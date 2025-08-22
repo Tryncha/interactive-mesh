@@ -1,18 +1,43 @@
-import { useContext, useId, useState } from 'react';
+import { useState, useContext } from 'react';
 import { verifyCompleted } from '../../utils';
 import MeshContext from '../../context/MeshContext';
-import './Subject.css';
+import SubjectModal from '../SubjectModal/SubjectModal';
 import { CapIcon, HeartIcon, PencilIcon } from '../Icons';
+import './Subject.css';
+
+const SubjectTooltip = ({ isHovering, subjectObj }) => {
+  if (!isHovering) return null;
+
+  return (
+    <div className="SubjectTooltip">
+      {subjectObj.prerequired.length > 0 ? (
+        <>
+          <span className="SubjectTooltip-title">Prerrequisitos</span>
+          <ul>
+            {subjectObj.prerequired.map((pre) => (
+              <li key={pre.id}>{pre.name}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+      {subjectObj.corequired.length > 0 ? (
+        <>
+          <span className="SubjectTooltip-title">Correquisitos</span>
+          <ul>
+            {subjectObj.corequired.map((pre) => (
+              <li key={pre.id}>{pre.name}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+    </div>
+  );
+};
 
 const Subject = ({ subjectObj, isAvailable }) => {
-  const { mesh, setMesh, completedSubjects, setCompletedSubjects } = useContext(MeshContext);
+  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
   const [isHovering, setIsHovering] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [optionalSubjectForm, setOptionalSubjectForm] = useState({ name: '', credits: 2 });
-
-  const optionalSubjectNameInputId = useId();
-  const optionalSubjectCreditsInputId = useId();
 
   const subjectIds = completedSubjects.map((sbj) => sbj.id);
   const isActive = subjectIds.includes(subjectObj.id);
@@ -28,33 +53,6 @@ const Subject = ({ subjectObj, isAvailable }) => {
     }
   }
 
-  function handleOptionalSubjectChange(event) {
-    const { name, value } = event.target;
-    setOptionalSubjectForm((prevState) => ({ ...prevState, [name]: value }));
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const MeshCopy = [...mesh];
-    const subjectToEdit = MeshCopy.flat().find((sbj) => sbj.id === subjectObj.id);
-
-    subjectToEdit.name = String(optionalSubjectForm.name);
-    subjectToEdit.credits = Number(optionalSubjectForm.credits);
-
-    setMesh(MeshCopy);
-    localStorage.setItem('mesh', JSON.stringify(mesh));
-
-    setCompletedSubjects([...completedSubjects, subjectObj]);
-    setOptionalSubjectForm({ name: '', credits: 2 });
-    setIsModalOpen(false);
-  }
-
-  function handleCancel(event) {
-    event.preventDefault();
-    setIsModalOpen(false);
-  }
-
   function handleMouseEnter() {
     setIsHovering(true);
   }
@@ -63,45 +61,22 @@ const Subject = ({ subjectObj, isAvailable }) => {
     setIsHovering(false);
   }
 
+  function openModal(event) {
+    event.stopPropagation();
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
   return (
     <>
-      {isModalOpen ? (
-        <div className="SubjectModal">
-          <form
-            className="SubjectModal-form"
-            onSubmit={handleSubmit}
-          >
-            <fieldset>
-              <legend>Editar asignatura</legend>
-              <div>
-                <label htmlFor={optionalSubjectNameInputId}>Nombre: </label>
-                <input
-                  type="text"
-                  name="name"
-                  id={optionalSubjectNameInputId}
-                  value={optionalSubjectForm.name}
-                  onChange={handleOptionalSubjectChange}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor={optionalSubjectCreditsInputId}>Créditos: </label>
-                <input
-                  type="number"
-                  name="credits"
-                  id={optionalSubjectCreditsInputId}
-                  value={optionalSubjectForm.credits}
-                  onChange={handleOptionalSubjectChange}
-                  min={1}
-                  required
-                />
-              </div>
-            </fieldset>
-            <button type="submit">Confirmar</button>
-            <button onClick={handleCancel}>Cancelar</button>
-          </form>
-        </div>
-      ) : null}
+      <SubjectModal
+        subjectObj={subjectObj}
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+      />
       <div
         className={isAvailable ? (isActive ? 'Subject is-active' : 'Subject') : 'Subject is-disabled'}
         onClick={isAvailable ? toggleSubject : null}
@@ -109,28 +84,10 @@ const Subject = ({ subjectObj, isAvailable }) => {
         onMouseLeave={handleMouseLeave}
       >
         {isHovering && (subjectObj.prerequired.length > 0 || subjectObj.corequired.length > 0) ? (
-          <div className="Subject-tooltip">
-            {subjectObj.prerequired.length > 0 ? (
-              <>
-                <span className="Subject-tooltipTitle">Prerrequisitos</span>
-                <ul>
-                  {subjectObj.prerequired.map((pre) => (
-                    <li key={pre.id}>{pre.name}</li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-            {subjectObj.corequired.length > 0 ? (
-              <>
-                <span className="Subject-tooltipTitle">Correquisitos</span>
-                <ul>
-                  {subjectObj.corequired.map((pre) => (
-                    <li key={pre.id}>{pre.name}</li>
-                  ))}
-                </ul>
-              </>
-            ) : null}
-          </div>
+          <SubjectTooltip
+            isHovering={isHovering}
+            subjectObj={subjectObj}
+          />
         ) : null}
         <div className={`Subject-header Subject--${subjectObj.category}`}>
           <span
@@ -143,7 +100,7 @@ const Subject = ({ subjectObj, isAvailable }) => {
             <span
               className="Subject-editToggle"
               title="Editar asignatura"
-              onClick={() => setIsModalOpen(true)}
+              onClick={openModal}
             >
               <PencilIcon />
             </span>
