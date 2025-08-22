@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
-import { verifyCompleted } from '../../utils';
 import MeshContext from '../../context/MeshContext';
 import SubjectModal from '../SubjectModal/SubjectModal';
-import { CapIcon, HeartIcon, PencilIcon } from '../Icons';
-import './Subject.css';
 import SubjectTooltip from '../SubjectTooltip/SubjectTooltip';
+import { CapIcon, HeartIcon, PencilIcon } from '../Icons';
+import { verifyCompleted } from '../../utils';
+import './Subject.css';
 
 const Subject = ({ subjectObj, isAvailable }) => {
   const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);

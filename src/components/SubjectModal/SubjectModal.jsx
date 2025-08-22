@@ -7,7 +7,10 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
   const subjectCreditsInputId = useId();
   const formRef = useRef();
 
+  const MIN_CREDITS = 1;
+  const MAX_CREDITS = 100;
   const DEFAULT_CREDITS = 3;
+
   const initialForm = {
     name: subjectObj.name,
     credits: subjectObj.credits || DEFAULT_CREDITS
@@ -21,6 +24,7 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     setSubjectForm((prevState) => ({ ...prevState, [name]: value }));
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -34,6 +38,12 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     localStorage.setItem('mesh', JSON.stringify(mesh));
 
     setCompletedSubjects([...completedSubjects, subjectObj]);
+    closeModal();
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function handleCancel() {
+    event.preventDefault();
     setSubjectForm(initialForm);
     closeModal();
   }
@@ -45,16 +55,14 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     }
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function handleCancel() {
-    setSubjectForm(initialForm);
-    closeModal();
-  }
-
   useEffect(() => {
     function handleKeydown(event) {
+      if (event.key === 'Enter') {
+        handleSubmit(event);
+      }
+
       if (event.key === 'Escape') {
-        handleCancel();
+        handleCancel(event);
       }
     }
 
@@ -63,7 +71,29 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     }
 
     return () => document.removeEventListener('keydown', handleKeydown);
-  }, [isOpen, handleCancel]);
+  }, [isOpen, handleSubmit, handleCancel]);
+
+  function decreaseCredits(event) {
+    event.preventDefault();
+
+    if (subjectForm.credits > MIN_CREDITS) {
+      setSubjectForm({
+        ...subjectForm,
+        credits: subjectForm.credits - 1
+      });
+    }
+  }
+
+  function increaseCredits(event) {
+    event.preventDefault();
+
+    if (subjectForm.credits < MAX_CREDITS) {
+      setSubjectForm({
+        ...subjectForm,
+        credits: subjectForm.credits + 1
+      });
+    }
+  }
 
   if (!isOpen) return null;
 
@@ -73,6 +103,8 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
       onClick={handleClick}
     >
       <div className="SubjectModal-formContainer">
+        <h2>Editar asignatura</h2>
+        <hr />
         <form
           className="SubjectModal-form"
           ref={formRef}
@@ -97,23 +129,39 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
               id={subjectCreditsInputId}
               value={subjectForm.credits}
               onChange={handleFormChange}
-              min={1}
-              max={100}
+              min={MIN_CREDITS}
+              max={MAX_CREDITS}
               required
             />
+            <div className="SubjectModal-buttonContainer">
+              <button
+                className="SubjectModal-button"
+                onClick={decreaseCredits}
+              >
+                -
+              </button>
+              <button
+                className="SubjectModal-button"
+                onClick={increaseCredits}
+              >
+                +
+              </button>
+            </div>
           </div>
-          <button
-            className="SubjectModal-button SubjectModal-button--submit"
-            type="submit"
-          >
-            Confirmar
-          </button>
-          <button
-            className="SubjectModal-button SubjectModal-button--cancel"
-            onClick={handleCancel}
-          >
-            Cancelar
-          </button>
+          <div className="SubjectModal-buttonContainer">
+            <button
+              className="SubjectModal-button SubjectModal-button--submit"
+              type="submit"
+            >
+              Confirmar
+            </button>
+            <button
+              className="SubjectModal-button SubjectModal-button--cancel"
+              onClick={handleCancel}
+            >
+              Cancelar
+            </button>
+          </div>
         </form>
       </div>
     </section>

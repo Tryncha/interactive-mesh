@@ -12,16 +12,41 @@
 }
 
 .SubjectModal-formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: var(--SubjectModal-form-backgroundColor);
+  border: 1px solid var(--Subject-borderColor);
+  border-radius: 5px;
   box-shadow: 2px 2px 5px var(--Subject-boxShadow);
 }
 
+.SubjectModal hr {
+  margin-bottom: 10px;
+}
+
 .SubjectModal-form {
-  background-color: var(--SubjectModal-form-backgroundColor);
-  padding: 20px;
-  border: 1px solid var(--Subject-borderColor);
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .SubjectModal-labelInput {
   display: flex;
+}
+
+.SubjectModal-labelInput input::-webkit-inner-spin-button,
+.SubjectModal-labelInput input::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+.SubjectModal-buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.SubjectModal-button {
+  padding: 2px 5px;
 }
