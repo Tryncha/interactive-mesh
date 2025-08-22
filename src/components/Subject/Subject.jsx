@@ -4,35 +4,7 @@ import MeshContext from '../../context/MeshContext';
 import SubjectModal from '../SubjectModal/SubjectModal';
 import { CapIcon, HeartIcon, PencilIcon } from '../Icons';
 import './Subject.css';
-
-const SubjectTooltip = ({ isHovering, subjectObj }) => {
-  if (!isHovering) return null;
-
-  return (
-    <div className="SubjectTooltip">
-      {subjectObj.prerequired.length > 0 ? (
-        <>
-          <span className="SubjectTooltip-title">Prerrequisitos</span>
-          <ul>
-            {subjectObj.prerequired.map((pre) => (
-              <li key={pre.id}>{pre.name}</li>
-            ))}
-          </ul>
-        </>
-      ) : null}
-      {subjectObj.corequired.length > 0 ? (
-        <>
-          <span className="SubjectTooltip-title">Correquisitos</span>
-          <ul>
-            {subjectObj.corequired.map((pre) => (
-              <li key={pre.id}>{pre.name}</li>
-            ))}
-          </ul>
-        </>
-      ) : null}
-    </div>
-  );
-};
+import SubjectTooltip from '../SubjectTooltip/SubjectTooltip';
 
 const Subject = ({ subjectObj, isAvailable }) => {
   const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
@@ -41,6 +13,7 @@ const Subject = ({ subjectObj, isAvailable }) => {
 
   const subjectIds = completedSubjects.map((sbj) => sbj.id);
   const isActive = subjectIds.includes(subjectObj.id);
+
   const SUBJECT_NAME_MAX_LENGTH = 60;
 
   function toggleSubject() {
@@ -73,9 +46,9 @@ const Subject = ({ subjectObj, isAvailable }) => {
   return (
     <>
       <SubjectModal
-        subjectObj={subjectObj}
         isOpen={isModalOpen}
         closeModal={closeModal}
+        subjectObj={subjectObj}
       />
       <div
         className={isAvailable ? (isActive ? 'Subject is-active' : 'Subject') : 'Subject is-disabled'}
@@ -83,12 +56,10 @@ const Subject = ({ subjectObj, isAvailable }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {isHovering && (subjectObj.prerequired.length > 0 || subjectObj.corequired.length > 0) ? (
-          <SubjectTooltip
-            isHovering={isHovering}
-            subjectObj={subjectObj}
-          />
-        ) : null}
+        <SubjectTooltip
+          isHovering={isHovering}
+          subjectObj={subjectObj}
+        />
         <div className={`Subject-header Subject--${subjectObj.category}`}>
           <span
             className="Subject-credits"

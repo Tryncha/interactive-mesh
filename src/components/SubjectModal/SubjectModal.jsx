@@ -2,7 +2,7 @@ import { useState, useEffect, useContext, useId, useRef } from 'react';
 import MeshContext from '../../context/MeshContext';
 import './SubjectModal.css';
 
-const SubjectModal = ({ subjectObj, isOpen, closeModal }) => {
+const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
   const subjectNameInputId = useId();
   const subjectCreditsInputId = useId();
   const formRef = useRef();

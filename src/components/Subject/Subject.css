@@ -1,18 +1,3 @@
-.SubjectTooltip {
-  width: 300px;
-  position: absolute;
-  top: 115px;
-  padding: 10px 30px;
-  border: 1px solid var(--Subject-borderColor);
-  color: var(--Subject-fontColor);
-  background-color: var(--Subject-tooltip-backgroundColor);
-  z-index: 1;
-}
-
-.SubjectTooltip-title {
-  font-weight: bold;
-}
-
 .Subject {
   position: relative;
   width: 160px;
