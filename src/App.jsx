@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
 
-const VERSION = '0.1.5';
+const VERSION = '0.1.6';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
@@ -28,26 +28,6 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <div>
-          <h1>Malla Curricular Interactiva - Ingeniería Química</h1>
-          <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
-        </div>
-        <div className="MeshInfo">
-          <div className="MeshInfo-progress">
-            <span>
-              Créditos: {completedCredits}/{totalCredits}
-            </span>
-            <span>Progreso: {progress}%</span>
-          </div>
-          <button
-            className="u-resetButton"
-            onClick={resetSubjects}
-          >
-            Reiniciar
-          </button>
-        </div>
-      </header>
       <main>
         <section className="Mesh">
           {mesh.map((semester, i) => (
@@ -67,7 +47,27 @@ const App = () => {
           ))}
         </section>
       </main>
-      <footer>Version {VERSION} - Hecho por Tryncha</footer>
+      <footer>
+        <div>
+          <h1>Malla Curricular Interactiva - Ingeniería Química</h1>
+          <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
+          <span>Version {VERSION} - Hecho por Tryncha</span>
+        </div>
+        <div className="MeshInfo">
+          <div className="MeshInfo-progress">
+            <span>
+              Créditos: {completedCredits}/{totalCredits}
+            </span>
+            <span>Progreso: {progress}%</span>
+          </div>
+          <button
+            className="u-resetButton"
+            onClick={resetSubjects}
+          >
+            Reiniciar
+          </button>
+        </div>
+      </footer>
     </>
   );
 };

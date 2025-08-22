@@ -79,24 +79,29 @@ body {
   scroll-snap-type: y mandatory;
 }
 
-header {
+footer {
   display: flex;
   justify-content: space-between;
   background-color: var(--header-backgroundColor);
   padding: 5px 10px;
-  border-bottom: 1px solid var(--body-borderColor);
+  border-top: 1px solid var(--body-borderColor);
   scroll-snap-align: start;
 }
 
-header h1 {
+footer h1 {
   height: 28px;
   font-size: 26px;
 }
 
-header h2 {
+footer h2 {
   height: 20px;
   font-size: 18px;
   font-style: italic;
+}
+
+footer span {
+  font-style: italic;
+  color: #4d4d4d;
 }
 
 main {
@@ -105,7 +110,7 @@ main {
   scroll-snap-align: start;
 }
 
-footer {
+/* footer {
   display: flex;
   flex-direction: row-reverse;
   background-color: var(--header-backgroundColor);
@@ -114,7 +119,7 @@ footer {
   padding: 2px 5px;
   border-top: 1px solid var(--body-borderColor);
   scroll-snap-align: start;
-}
+} */
 
 .u-hr {
   width: 95%;
