@@ -1,13 +1,13 @@
-import { useState, useContext } from 'react';
-import MeshContext from '../../context/MeshContext';
+import { useState } from 'react';
 import SubjectModal from '../SubjectModal/SubjectModal';
 import SubjectTooltip from '../SubjectTooltip/SubjectTooltip';
 import { CapIcon, HeartIcon, PencilIcon } from '../Icons';
 import { verifyCompleted } from '../../utils';
 import './Subject.css';
+import useMesh from '../../hooks/useMesh';
 
 const Subject = ({ subjectObj, isAvailable }) => {
-  const { completedSubjects, setCompletedSubjects } = useContext(MeshContext);
+  const { completedSubjects, setCompletedSubjects } = useMesh();
   const [isHovering, setIsHovering] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -77,7 +77,10 @@ const Subject = ({ subjectObj, isAvailable }) => {
               title="Editar asignatura"
               onClick={openModal}
             >
-              <PencilIcon />
+              <PencilIcon
+                fill="none"
+                stroke="#fff"
+              />
             </span>
           ) : null}
           <div className="Subject-required">
@@ -110,7 +113,7 @@ const Subject = ({ subjectObj, isAvailable }) => {
             className="Subject-type"
             title="Tipo"
           >
-            {type === 'mandatory' ? <CapIcon /> : <HeartIcon />}
+            {type === 'mandatory' ? <CapIcon fill="#fff" /> : <HeartIcon fill="#fff" />}
           </div>
         </div>
       </div>

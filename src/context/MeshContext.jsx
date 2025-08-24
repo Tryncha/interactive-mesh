@@ -29,11 +29,14 @@ export const MeshProvider = ({ children }) => {
   // console.log('Mesh: ', mesh);
   // console.log('Completed Subjects: ', completedSubjects);
 
-  return (
-    <MeshContext.Provider value={{ mesh, setMesh, completedSubjects, setCompletedSubjects }}>
-      {children}
-    </MeshContext.Provider>
-  );
+  const meshValue = {
+    mesh,
+    setMesh,
+    completedSubjects,
+    setCompletedSubjects
+  };
+
+  return <MeshContext.Provider value={meshValue}>{children}</MeshContext.Provider>;
 };
 
 export default MeshContext;

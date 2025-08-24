@@ -1,16 +1,15 @@
-import { useContext } from 'react';
-import MeshContext from './context/MeshContext';
 import confetti from 'canvas-confetti';
 import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
-import ThemeContext from './context/ThemeContext';
+import useTheme from './hooks/useTheme';
+import useMesh from './hooks/useMesh';
 
-const VERSION = '0.1.9';
+const VERSION = '0.1.10';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
-  const { theme, applyTheme } = useContext(ThemeContext);
-  const { mesh, completedSubjects, setCompletedSubjects } = useContext(MeshContext);
+  const { applyTheme } = useTheme();
+  const { mesh, completedSubjects, setCompletedSubjects } = useMesh();
 
   const completedCredits = completedSubjects.reduce((acc, current) => current.credits + acc, 0);
   const totalCredits = mesh.reduce(
@@ -66,14 +65,15 @@ const App = () => {
         </div>
         <div className="MeshInfo-options">
           <div className="MeshInfo-theme">
+            <label htmlFor="temp-selectTheme">Tema</label>
             <select
               id="temp-selectTheme"
-              value={theme}
               onChange={handleThemeChange}
             >
+              <option value="system">Sistema</option>
               <option value="light">Claro</option>
               <option value="dark">Oscuro</option>
-              <option value="system">Sistema</option>
+              <option value="modern">Moderno</option>
             </select>
           </div>
           <button

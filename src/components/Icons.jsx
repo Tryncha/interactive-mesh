@@ -1,3 +1,5 @@
+import useTheme from '../hooks/useTheme';
+
 export const CapIcon = () => {
   return (
     <svg
@@ -33,6 +35,8 @@ export const HeartIcon = () => {
 };
 
 export const PencilIcon = () => {
+  const { theme } = useTheme();
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +46,7 @@ export const PencilIcon = () => {
       viewBox="0 0 24 24"
     >
       <g
-        stroke="#000"
+        stroke={theme === 'dark' ? '#fff' : '#000'}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
