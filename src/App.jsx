@@ -3,11 +3,13 @@ import MeshContext from './context/MeshContext';
 import confetti from 'canvas-confetti';
 import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
+import ThemeContext from './context/ThemeContext';
 
-const VERSION = '0.1.7';
+const VERSION = '0.1.8';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
+  const { theme, applyTheme } = useContext(ThemeContext);
   const { mesh, completedSubjects, setCompletedSubjects } = useContext(MeshContext);
 
   const completedCredits = completedSubjects.reduce((acc, current) => current.credits + acc, 0);
@@ -25,6 +27,10 @@ const App = () => {
   }
 
   if (completedSubjects.length === 60 || progress === 100) confetti();
+
+  function handleThemeChange(event) {
+    applyTheme(event.target.value);
+  }
 
   return (
     <>
@@ -47,13 +53,23 @@ const App = () => {
           ))}
         </section>
       </main>
-      <footer>
-        <div>
+      <section className="MeshInfo">
+        <div className="MeshInfo-title">
           <h1>Malla Curricular Interactiva - Ingeniería Química</h1>
           <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
-          <span>Version {VERSION} - Hecho por Tryncha</span>
         </div>
-        <div className="MeshInfo">
+        <div className="MeshInfo-options">
+          <div className="MeshInfo-theme">
+            <select
+              id="temp-selectTheme"
+              value={theme}
+              onChange={handleThemeChange}
+            >
+              <option value="light">Claro</option>
+              <option value="dark">Oscuro</option>
+              <option value="system">Sistema</option>
+            </select>
+          </div>
           <div className="MeshInfo-progress">
             <span>
               Créditos: {completedCredits}/{totalCredits}
@@ -67,7 +83,8 @@ const App = () => {
             Reiniciar
           </button>
         </div>
-      </footer>
+      </section>
+      <footer>Version {VERSION} - Hecho por Tryncha</footer>
     </>
   );
 };

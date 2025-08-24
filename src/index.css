@@ -1,4 +1,4 @@
-:root {
+[data-theme='light'] {
   /* --- body --- */
   --body-backgroundColor: #ebebeb;
   --body-borderColor: #1f1f1f;
@@ -7,50 +7,103 @@
   /* --- header --- */
   --header-backgroundColor: #dadada;
 
+  /* --- footer --- */
+  --footer-backgroundColor: #b0a9ae;
+  --footer-fontColor: #624259;
+
   /* --- Subject --- */
   --Subject-backgroundColor: #eee;
-
+  --Subject--isActive-backgroundColor: #e3fbe3;
   --Subject-borderColor: #818181;
   --Subject-fontColor: #464646;
 
+  --Subject--isDisabled-backgroundColor: #e0dcdc;
   --Subject--isDisabled-borderColor: #999999;
-  --Subject--isDisabled-fontColor: #8b8b8b;
+  --Subject--isDisabled-fontColor: #8d8a8a;
 
-  --Subject-boxShadow: #969696;
+  --Subject-boxShadow: 2px 2px 5px #969696;
 
-  --Subject--isActive-backgroundColor: #d6f0d6;
-  --Subject--isDisabled-backgroundColor: #d4d4d4;
+  /* --- Subject-footer category color --- */
+  --Subject--fundamental-backgroundColor: #eeb855;
+  --Subject--disciplinary-backgroundColor: #91ca57;
+  --Subject--elective-backgroundColor: #ade0f1;
+  --Subject--foreignLanguage-backgroundColor: #ffc5d6;
 
-  /* --- Subject-tooltip --- */
+  --Subject-categoryFontColor: #3d3d3d;
+
+  --Subject--isDisabled--fundamental-backgroundColor: #be8c31;
+  --Subject--isDisabled--disciplinary-backgroundColor: #4d7f23;
+  --Subject--isDisabled--elective-backgroundColor: #ade0f1;
+  --Subject--isDisabled--foreignLanguage-backgroundColor: #af5871;
+
+  --Subject--isDisabled-categoryFontColor: #fff;
+
+  /* --- Subject-footer type colors --- */
+  --Subject--mandatory-backgroundColor: #c62f2f;
+  --Subject--optional-backgroundColor: #3c6fce;
+
+  --Subject--isDisabled--mandatory-backgroundColor: #7e1e1e;
+  --Subject--isDisabled--optional-backgroundColor: #3c6fce;
+
+  /* --- SubjectTooltip --- */
   --Subject-tooltip-backgroundColor: #eee;
 
-  /* --- Subject Category color --- */
-  --Subject--fundamental-backgroundColor: #ecab33;
-  --Subject--disciplinary-backgroundColor: #459c45;
-  --Subject--elective-backgroundColor: #add8e6;
-  --Subject--foreignLanguage-backgroundColor: #f8c6cf;
+  /* --- SubjectModal --- */
+  --SubjectModal-backgroundColor: #5555556b;
 
-  --Subject--fundamental-fontColor: #464646;
-  --Subject--disciplinary-fontColor: #464646;
-  --Subject--elective-fontColor: #464646;
-  --Subject--foreignLanguage-fontColor: #464646;
+  /* --- SubjectModal-form --- */
+  --SubjectModal-form-backgroundColor: #d4d4d4;
+}
 
-  --Subject--isDisabled--fundamental-backgroundColor: #c0974b;
-  --Subject--isDisabled--disciplinary-backgroundColor: #387c38;
-  --Subject--isDisabled--elective-backgroundColor: #90b4c0;
-  --Subject--isDisabled--foreignLanguage-backgroundColor: #cca7ae;
+[data-theme='dark'] {
+  /* --- body --- */
+  --body-backgroundColor: #181818;
+  --body-borderColor: #1f1f1f;
+  --body-fontColor: #e6e6e6;
 
-  --Subject--isDisabled--fundamental-fontColor: #fff;
-  --Subject--isDisabled--disciplinary-fontColor: #fff;
-  --Subject--isDisabled--elective-fontColor: #fff;
-  --Subject--isDisabled--foreignLanguage-fontColor: #fff;
+  /* --- header --- */
+  --header-backgroundColor: #dadada;
 
-  /* --- Subject Type colors --- */
-  --Subject--mandatory-backgroundColor: #e23232;
-  --Subject--optional-backgroundColor: #2067eb;
+  /* --- footer --- */
+  --footer-backgroundColor: #b0a9ae;
+  --footer-fontColor: #624259;
 
-  --Subject--isDisabled--mandatory-backgroundColor: #a53b3b;
-  --Subject--isDisabled--optional-backgroundColor: #2067eb;
+  /* --- Subject --- */
+  --Subject-backgroundColor: #4e4e4e;
+  --Subject--isActive-backgroundColor: #639063;
+  --Subject-borderColor: #6d6d6d;
+  --Subject-fontColor: #d3d3d3;
+
+  --Subject--isDisabled-backgroundColor: #2e2e2e;
+  --Subject--isDisabled-borderColor: #4e4e4e;
+  --Subject--isDisabled-fontColor: #e9e9e9;
+
+  --Subject-boxShadow: 2px 2px 5px #000000;
+
+  /* --- Subject-footer category color --- */
+  --Subject--fundamental-backgroundColor: #6e5322;
+  --Subject--disciplinary-backgroundColor: #344721;
+  --Subject--elective-backgroundColor: #4c6871;
+  --Subject--foreignLanguage-backgroundColor: #66434d;
+
+  --Subject-categoryFontColor: #ffffff;
+
+  --Subject--isDisabled--fundamental-backgroundColor: #3e3015;
+  --Subject--isDisabled--disciplinary-backgroundColor: #18220f;
+  --Subject--isDisabled--elective-backgroundColor: #4c6871;
+  --Subject--isDisabled--foreignLanguage-backgroundColor: #3f1f28;
+
+  --Subject--isDisabled-categoryFontColor: #fff;
+
+  /* --- Subject-footer type colors --- */
+  --Subject--mandatory-backgroundColor: #792121;
+  --Subject--optional-backgroundColor: #3c6fce;
+
+  --Subject--isDisabled--mandatory-backgroundColor: #3c0c0c;
+  --Subject--isDisabled--optional-backgroundColor: #3c6fce;
+
+  /* --- SubjectTooltip --- */
+  --Subject-tooltip-backgroundColor: #eee;
 
   /* --- SubjectModal --- */
   --SubjectModal-backgroundColor: #5555556b;
@@ -75,33 +128,9 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-}
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--header-backgroundColor);
-  padding: 5px 10px;
-  border-top: 1px solid var(--body-borderColor);
-  scroll-snap-align: start;
-}
-
-footer h1 {
-  height: 28px;
-  font-size: 26px;
-}
-
-footer h2 {
-  height: 20px;
-  font-size: 18px;
-  font-style: italic;
-}
-
-footer span {
-  font-style: italic;
-  color: #4d4d4d;
 }
 
 main {
@@ -110,16 +139,13 @@ main {
   scroll-snap-align: start;
 }
 
-/* footer {
-  display: flex;
-  flex-direction: row-reverse;
-  background-color: var(--header-backgroundColor);
-  font-style: italic;
-  color: #4d4d4d;
-  padding: 2px 5px;
+footer {
+  background-color: var(--footer-backgroundColor);
+  padding: 1px 10px;
   border-top: 1px solid var(--body-borderColor);
-  scroll-snap-align: start;
-} */
+  font-style: italic;
+  color: var(--footer-fontColor);
+}
 
 .u-hr {
   width: 95%;
@@ -176,8 +202,36 @@ main {
 .MeshInfo {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 30px;
-  margin-right: 20px;
+  background-color: var(--header-backgroundColor);
+  padding: 5px 10px;
+  border-top: 1px solid var(--body-borderColor);
+  margin-top: 40px;
+  scroll-snap-align: start;
+}
+
+.MeshInfo-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.MeshInfo h1 {
+  height: 28px;
+  font-size: 26px;
+}
+
+.MeshInfo h2 {
+  height: 20px;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.MeshInfo-options {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-right: 30px;
 }
 
 .MeshInfo-progress {

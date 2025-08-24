@@ -12,15 +12,15 @@
   border: 1px solid var(--Subject-borderColor);
   border-radius: 2px;
   cursor: pointer;
-  box-shadow: 2px 2px 5px var(--Subject-boxShadow);
+  box-shadow: var(--Subject-boxShadow);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
-.Subject.is-active {
+.is-active {
   background-color: var(--Subject--isActive-backgroundColor);
 }
 
-.Subject.is-disabled {
+.is-disabled {
   background-color: var(--Subject--isDisabled-backgroundColor);
   color: var(--Subject--isDisabled-fontColor);
   border: 1px solid var(--Subject--isDisabled-borderColor);
@@ -30,53 +30,58 @@
 .Subject-header {
   width: 100%;
   height: 18px;
-  font-size: 14px;
   display: flex;
   justify-content: space-between;
-}
-
-.Subject-header.Subject--fundamental .Subject-credits {
-  background-color: var(--Subject--fundamental-backgroundColor);
-  color: var(--Subject--fundamental-fontColor);
-}
-
-.Subject-header.Subject--disciplinary .Subject-credits {
-  background-color: var(--Subject--disciplinary-backgroundColor);
-  color: var(--Subject--disciplinary-fontColor);
-}
-
-.Subject-header.Subject--elective .Subject-credits {
-  background-color: var(--Subject--elective-backgroundColor);
-  color: var(--Subject--elective-fontColor);
-}
-
-.Subject-header.Subject--foreignLanguage .Subject-credits {
-  background-color: var(--Subject--foreignLanguage-backgroundColor);
-  color: var(--Subject--foreignLanguage-fontColor);
-}
-
-.Subject.is-disabled .Subject-header.Subject--fundamental .Subject-credits {
-  background-color: var(--Subject--isDisabled--fundamental-backgroundColor);
-  color: var(--Subject--isDisabled--fundamental-fontColor);
-}
-
-.Subject.is-disabled .Subject-header.Subject--disciplinary .Subject-credits {
-  background-color: var(--Subject--isDisabled--disciplinary-backgroundColor);
-  color: var(--Subject--isDisabled--disciplinary-fontColor);
-}
-
-.Subject.is-disabled .Subject-header.Subject--elective .Subject-credits {
-  background-color: var(--Subject--isDisabled--elective-backgroundColor);
-  color: var(--Subject--isDisabled--elective-fontColor);
-}
-
-.Subject.is-disabled .Subject-header.Subject--foreignLanguage .Subject-credits {
-  background-color: var(--Subject--isDisabled--foreignLanguage-backgroundColor);
-  color: var(--Subject--isDisabled--foreignLanguage-fontColor);
+  font-size: 14px;
 }
 
 .Subject-credits {
   width: 40%;
+  color: var(--Subject-categoryFontColor);
+}
+
+.is-disabled .Subject-credits {
+  color: var(--Subject--isDisabled-categoryFontColor);
+}
+
+.Subject--fundamental .Subject-credits,
+.Subject--fundamental .Subject-category {
+  background-color: var(--Subject--fundamental-backgroundColor);
+}
+
+.Subject--disciplinary .Subject-credits,
+.Subject--disciplinary .Subject-category {
+  background-color: var(--Subject--disciplinary-backgroundColor);
+}
+
+.Subject--elective .Subject-credits,
+.Subject--elective .Subject-category {
+  background-color: var(--Subject--elective-backgroundColor);
+}
+
+.Subject--foreignLanguage .Subject-credits,
+.Subject--foreignLanguage .Subject-category {
+  background-color: var(--Subject--foreignLanguage-backgroundColor);
+}
+
+.is-disabled.Subject--fundamental .Subject-credits,
+.is-disabled.Subject--fundamental .Subject-category {
+  background-color: var(--Subject--isDisabled--fundamental-backgroundColor);
+}
+
+.is-disabled.Subject--disciplinary .Subject-credits,
+.is-disabled.Subject--disciplinary .Subject-category {
+  background-color: var(--Subject--isDisabled--disciplinary-backgroundColor);
+}
+
+.is-disabled.Subject--elective .Subject-credits,
+.is-disabled.Subject--elective .Subject-category {
+  background-color: var(--Subject--isDisabled--elective-backgroundColor);
+}
+
+.is-disabled.Subject--foreignLanguage .Subject-credits,
+.is-disabled.Subject--foreignLanguage .Subject-category {
+  background-color: var(--Subject--isDisabled--foreignLanguage-backgroundColor);
 }
 
 .Subject-editToggle {
@@ -110,89 +115,54 @@
   width: 100%;
   height: 20px;
   display: flex;
+  color: var(--Subject-categoryFontColor);
+}
+
+.is-disabled .Subject-footer {
+  color: var(--Subject--isDisabled-categoryFontColor);
 }
 
 .Subject-category {
   width: 70%;
 }
 
-.Subject-footer > .Subject--fundamental {
-  background-color: var(--Subject--fundamental-backgroundColor);
-  color: var(--Subject--fundamental-fontColor);
-}
-
-.Subject-footer > .Subject--fundamental::before {
+.Subject--fundamental .Subject-category::before {
   content: 'Fundamentación';
   font-size: 14px;
 }
 
-.Subject-footer > .Subject--disciplinary {
-  background-color: var(--Subject--disciplinary-backgroundColor);
-  color: var(--Subject--disciplinary-fontColor);
-}
-
-.Subject-footer > .Subject--disciplinary::before {
+.Subject--disciplinary .Subject-category::before {
   content: 'Disciplinar';
   font-size: 14px;
 }
 
-.Subject-footer > .Subject--elective {
-  background-color: var(--Subject--elective-backgroundColor);
-  color: var(--Subject--elective-fontColor);
-}
-
-.Subject-footer > .Subject--elective::before {
+.Subject--elective .Subject-category::before {
   content: 'Libre Elección';
   font-size: 14px;
 }
 
-.Subject-footer > .Subject--foreignLanguage {
-  background-color: var(--Subject--foreignLanguage-backgroundColor);
-  color: var(--Subject--foreignLanguage-fontColor);
-}
-
-.Subject-footer > .Subject--foreignLanguage::before {
+.Subject--foreignLanguage .Subject-category::before {
   content: 'Lengua Extranjera';
   font-size: 14px;
-}
-
-.Subject.is-disabled .Subject-footer > .Subject--fundamental {
-  background-color: var(--Subject--isDisabled--fundamental-backgroundColor);
-  color: var(--Subject--isDisabled--fundamental-fontColor);
-}
-
-.Subject.is-disabled .Subject-footer > .Subject--disciplinary {
-  background-color: var(--Subject--isDisabled--disciplinary-backgroundColor);
-  color: var(--Subject--isDisabled--disciplinary-fontColor);
-}
-
-.Subject.is-disabled .Subject-footer > .Subject--elective {
-  background-color: var(--Subject--isDisabled--elective-backgroundColor);
-  color: var(--Subject--isDisabled--elective-fontColor);
-}
-
-.Subject.is-disabled .Subject-footer > .Subject--foreignLanguage {
-  background-color: var(--Subject--isDisabled--foreignLanguage-backgroundColor);
-  color: var(--Subject--isDisabled--foreignLanguage-fontColor);
 }
 
 .Subject-type {
   width: 30%;
 }
 
-.Subject--mandatory {
+.Subject--mandatory .Subject-type {
   background-color: var(--Subject--mandatory-backgroundColor);
 }
 
-.Subject--optional {
+.Subject--optional .Subject-type {
   background-color: var(--Subject--optional-backgroundColor);
 }
 
-.Subject.is-disabled .Subject--mandatory {
+.is-disabled.Subject--mandatory .Subject-type {
   background-color: var(--Subject--isDisabled--mandatory-backgroundColor);
 }
 
-.Subject.is-disabled .Subject--optional {
+.is-disabled.Subject--optional .Subject-type {
   background-color: var(--Subject--isDisabled--optional-backgroundColor);
 }
 

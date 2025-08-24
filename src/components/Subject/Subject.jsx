@@ -11,16 +11,18 @@ const Subject = ({ subjectObj, isAvailable }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const { id, name, credits, prerequired, corequired, category, type } = subjectObj;
+
   const subjectIds = completedSubjects.map((sbj) => sbj.id);
-  const isActive = subjectIds.includes(subjectObj.id);
+  const isActive = subjectIds.includes(id);
 
   const SUBJECT_NAME_MAX_LENGTH = 60;
 
   function toggleSubject() {
-    if (!subjectIds.includes(subjectObj.id)) {
+    if (!subjectIds.includes(id)) {
       setCompletedSubjects([...completedSubjects, subjectObj]);
     } else {
-      const withoutSubject = completedSubjects.filter((sbj) => sbj.id !== subjectObj.id);
+      const withoutSubject = completedSubjects.filter((sbj) => sbj.id !== id);
       const cleanedCompleted = verifyCompleted(withoutSubject);
       setCompletedSubjects(cleanedCompleted);
     }
@@ -43,6 +45,8 @@ const Subject = ({ subjectObj, isAvailable }) => {
     setIsModalOpen(false);
   }
 
+  const className = `Subject Subject--${category} Subject--${type}`;
+
   return (
     <>
       <SubjectModal
@@ -51,7 +55,7 @@ const Subject = ({ subjectObj, isAvailable }) => {
         subjectObj={subjectObj}
       />
       <div
-        className={isAvailable ? (isActive ? 'Subject is-active' : 'Subject') : 'Subject is-disabled'}
+        className={isAvailable ? (isActive ? `${className} is-active` : `${className}`) : `${className} is-disabled`}
         onClick={isAvailable ? toggleSubject : null}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -60,14 +64,14 @@ const Subject = ({ subjectObj, isAvailable }) => {
           isHovering={isHovering}
           subjectObj={subjectObj}
         />
-        <div className={`Subject-header Subject--${subjectObj.category}`}>
+        <div className="Subject-header">
           <span
             className="Subject-credits"
             title="Créditos"
           >
-            {subjectObj.credits || '-'}
+            {credits || '-'}
           </span>
-          {subjectObj.type === 'optional' ? (
+          {type === 'optional' ? (
             <span
               className="Subject-editToggle"
               title="Editar asignatura"
@@ -79,36 +83,34 @@ const Subject = ({ subjectObj, isAvailable }) => {
           <div className="Subject-required">
             <span
               className="Subject-prerequired"
-              title={subjectObj.prerequired.length > 0 ? 'Tiene prerrequisitos' : 'No tiene prerrequisitos'}
+              title={prerequired.length > 0 ? 'Tiene prerrequisitos' : 'No tiene prerrequisitos'}
             >
-              {subjectObj.prerequired.length > 0 ? 'P' : '-'}
+              {prerequired.length > 0 ? 'P' : '-'}
             </span>
             <span
               className="Subject-corequired"
-              title={subjectObj.corequired.length > 0 ? 'Tiene correquisitos' : 'No tiene correquisitos'}
+              title={corequired.length > 0 ? 'Tiene correquisitos' : 'No tiene correquisitos'}
             >
-              {subjectObj.corequired.length > 0 ? 'C' : '-'}
+              {corequired.length > 0 ? 'C' : '-'}
             </span>
           </div>
         </div>
         <div
           className="Subject-name"
-          title={subjectObj.name.length >= SUBJECT_NAME_MAX_LENGTH ? subjectObj.name : ''}
+          title={name.length >= SUBJECT_NAME_MAX_LENGTH ? name : ''}
         >
-          {subjectObj.name.length >= SUBJECT_NAME_MAX_LENGTH
-            ? `${subjectObj.name.slice(0, SUBJECT_NAME_MAX_LENGTH)}...`
-            : subjectObj.name}
+          {name.length >= SUBJECT_NAME_MAX_LENGTH ? `${name.slice(0, SUBJECT_NAME_MAX_LENGTH)}...` : name}
         </div>
         <div className="Subject-footer">
           <div
-            className={`Subject-category Subject--${subjectObj.category}`}
+            className="Subject-category"
             title="Categoría"
           />
           <div
-            className={`Subject-type Subject--${subjectObj.type}`}
+            className="Subject-type"
             title="Tipo"
           >
-            {subjectObj.type === 'mandatory' ? <CapIcon /> : <HeartIcon />}
+            {type === 'mandatory' ? <CapIcon /> : <HeartIcon />}
           </div>
         </div>
       </div>
