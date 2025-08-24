@@ -5,7 +5,7 @@ import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
 import ThemeContext from './context/ThemeContext';
 
-const VERSION = '0.1.8';
+const VERSION = '0.1.9';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
@@ -59,7 +59,7 @@ const App = () => {
           <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
         </div>
         <div className="MeshInfo-options">
-          <div className="MeshInfo-theme">
+          {/* <div className="MeshInfo-theme">
             <select
               id="temp-selectTheme"
               value={theme}
@@ -69,7 +69,7 @@ const App = () => {
               <option value="dark">Oscuro</option>
               <option value="system">Sistema</option>
             </select>
-          </div>
+          </div> */}
           <div className="MeshInfo-progress">
             <span>
               Créditos: {completedCredits}/{totalCredits}

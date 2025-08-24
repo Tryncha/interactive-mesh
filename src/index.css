@@ -25,7 +25,7 @@
 
   /* --- Subject-footer category color --- */
   --Subject--fundamental-backgroundColor: #eeb855;
-  --Subject--disciplinary-backgroundColor: #91ca57;
+  --Subject--disciplinary-backgroundColor: #78c239;
   --Subject--elective-backgroundColor: #ade0f1;
   --Subject--foreignLanguage-backgroundColor: #ffc5d6;
 
@@ -39,10 +39,10 @@
   --Subject--isDisabled-categoryFontColor: #fff;
 
   /* --- Subject-footer type colors --- */
-  --Subject--mandatory-backgroundColor: #c62f2f;
+  --Subject--mandatory-backgroundColor: #cb3636;
   --Subject--optional-backgroundColor: #3c6fce;
 
-  --Subject--isDisabled--mandatory-backgroundColor: #7e1e1e;
+  --Subject--isDisabled--mandatory-backgroundColor: #9d2c2c;
   --Subject--isDisabled--optional-backgroundColor: #3c6fce;
 
   /* --- SubjectTooltip --- */
