@@ -52,6 +52,12 @@ const App = () => {
             </section>
           ))}
         </section>
+        <div className="u-progressInfo">
+          <span>
+            Créditos: {completedCredits}/{totalCredits}
+          </span>
+          <span>Progreso: {progress}%</span>
+        </div>
       </main>
       <section className="MeshInfo">
         <div className="MeshInfo-title">
@@ -59,7 +65,7 @@ const App = () => {
           <h2>Universidad Nacional de Colombia, Sede Manizales</h2>
         </div>
         <div className="MeshInfo-options">
-          {/* <div className="MeshInfo-theme">
+          <div className="MeshInfo-theme">
             <select
               id="temp-selectTheme"
               value={theme}
@@ -69,12 +75,6 @@ const App = () => {
               <option value="dark">Oscuro</option>
               <option value="system">Sistema</option>
             </select>
-          </div> */}
-          <div className="MeshInfo-progress">
-            <span>
-              Créditos: {completedCredits}/{totalCredits}
-            </span>
-            <span>Progreso: {progress}%</span>
           </div>
           <button
             className="u-resetButton"
