@@ -11,14 +11,18 @@
   z-index: 2;
 }
 
-.SubjectModal-formContainer {
+.SubjectModal-modalContainer {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px 30px;
   background-color: var(--SubjectModal-form-backgroundColor);
   border: 1px solid var(--Subject-borderColor);
   border-radius: 5px;
   box-shadow: 2px 2px 5px var(--Subject-boxShadow);
+}
+
+.SubjectModal h2 {
+  text-align: center;
 }
 
 .SubjectModal hr {
@@ -31,22 +35,45 @@
   gap: 2px;
 }
 
-.SubjectModal-labelInput {
-  display: flex;
+.SubjectModal label {
+  font-weight: bold;
 }
 
-.SubjectModal-labelInput input::-webkit-inner-spin-button,
-.SubjectModal-labelInput input::-webkit-outer-spin-button {
+.SubjectModal input {
+  text-align: center;
+  padding: 5px;
+}
+
+.SubjectModal input::-webkit-inner-spin-button,
+.SubjectModal input::-webkit-outer-spin-button {
   appearance: none;
 }
 
-.SubjectModal-buttonContainer {
+.SubjectModal-creditsInputContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2px;
+  justify-content: space-around;
+  border: 1px solid var(--Subject-borderColor);
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.SubjectModal-creditsInputContainer input {
+  width: 60%;
 }
 
 .SubjectModal-button {
   padding: 2px 5px;
+}
+
+.SubjectModal-creditButton {
+  width: 25px;
+  height: 25px;
+}
+
+.SubjectModal-buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  margin-top: 5px;
 }

@@ -5,10 +5,11 @@ import './SubjectModal.css';
 const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
   const subjectNameInputId = useId();
   const subjectCreditsInputId = useId();
-  const formRef = useRef();
+  const modalRef = useRef(null);
+  const subjectNameInputRef = useRef(null);
 
   const MIN_CREDITS = 1;
-  const MAX_CREDITS = 100;
+  const MAX_CREDITS = 10;
   const DEFAULT_CREDITS = 3;
 
   const initialForm = {
@@ -46,14 +47,22 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     closeModal();
   }
 
-  function handleClick(event) {
-    // Event to close the modal when clicking outside of it
-    if (!formRef.current.contains(event.target)) {
-      handleCancel();
+  useEffect(() => {
+    function selectText() {
+      subjectNameInputRef.current.focus();
+      subjectNameInputRef.current.select();
     }
-  }
+
+    if (isOpen) selectText();
+  }, [isOpen]);
 
   useEffect(() => {
+    function handleClickOutside(event) {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        handleCancel();
+      }
+    }
+
     function handleKeydown(event) {
       if (event.key === 'Enter') {
         handleSubmit(event);
@@ -65,10 +74,14 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
     }
 
     if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('keydown', handleKeydown);
     }
 
-    return () => document.removeEventListener('keydown', handleKeydown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeydown);
+    };
   }, [isOpen, handleSubmit, handleCancel]);
 
   function decreaseCredits(event) {
@@ -96,31 +109,36 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
   if (!isOpen) return null;
 
   return (
-    <section
-      className="SubjectModal"
-      onClick={handleClick}
-    >
-      <div className="SubjectModal-formContainer">
+    <section className="SubjectModal">
+      <div
+        className="SubjectModal-modalContainer"
+        ref={modalRef}
+      >
         <h2>Editar asignatura</h2>
         <hr />
         <form
           className="SubjectModal-form"
-          ref={formRef}
           onSubmit={handleSubmit}
         >
-          <div className="SubjectModal-labelInput">
-            <label htmlFor={subjectNameInputId}>Nombre: </label>
-            <input
-              type="text"
-              name="name"
-              id={subjectNameInputId}
-              value={subjectForm.name}
-              onChange={handleFormChange}
-              required
-            />
-          </div>
-          <div className="SubjectModal-labelInput">
-            <label htmlFor={subjectCreditsInputId}>Créditos: </label>
+          <label htmlFor={subjectNameInputId}>Nombre</label>
+          <input
+            type="text"
+            name="name"
+            id={subjectNameInputId}
+            ref={subjectNameInputRef}
+            value={subjectForm.name}
+            onChange={handleFormChange}
+            autoComplete="on"
+            required
+          />
+          <label htmlFor={subjectCreditsInputId}>Créditos</label>
+          <div className="SubjectModal-creditsInputContainer">
+            <button
+              className="SubjectModal-button SubjectModal-creditButton"
+              onClick={decreaseCredits}
+            >
+              -
+            </button>
             <input
               type="number"
               name="credits"
@@ -131,27 +149,19 @@ const SubjectModal = ({ isOpen, closeModal, subjectObj }) => {
               max={MAX_CREDITS}
               required
             />
-            <div className="SubjectModal-buttonContainer">
-              <button
-                className="SubjectModal-button"
-                onClick={decreaseCredits}
-              >
-                -
-              </button>
-              <button
-                className="SubjectModal-button"
-                onClick={increaseCredits}
-              >
-                +
-              </button>
-            </div>
+            <button
+              className="SubjectModal-button SubjectModal-creditButton"
+              onClick={increaseCredits}
+            >
+              +
+            </button>
           </div>
           <div className="SubjectModal-buttonContainer">
             <button
               className="SubjectModal-button SubjectModal-button--submit"
               type="submit"
             >
-              Confirmar
+              Guardar cambios
             </button>
             <button
               className="SubjectModal-button SubjectModal-button--cancel"

@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 import Subject from './components/Subject/Subject';
 import { verifyRequired } from './utils';
 
-const VERSION = '0.1.6';
+const VERSION = '0.1.7';
 const romanNumbers = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 const App = () => {
